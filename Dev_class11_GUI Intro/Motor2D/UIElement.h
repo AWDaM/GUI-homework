@@ -18,6 +18,7 @@ public:
 public:
 	iPoint position;
 	iPoint positionOffset;
+
 };
 
 #endif

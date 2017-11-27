@@ -55,8 +55,12 @@
     <ClCompile Include="Label.cpp">
       <Filter>Desenvolupament  ========\Gui</Filter>
     </ClCompile>
-    <ClCompile Include="Image.cpp" />
-    <ClCompile Include="Interactive.cpp" />
+    <ClCompile Include="Interactive.cpp">
+      <Filter>Desenvolupament  ========\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Desenvolupament  ========\Gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="j1Window.h">
@@ -131,8 +135,12 @@
     <ClInclude Include="Label.h">
       <Filter>Desenvolupament  ========\Gui</Filter>
     </ClInclude>
-    <ClInclude Include="Image.h" />
-    <ClInclude Include="Interactive.h" />
+    <ClInclude Include="Interactive.h">
+      <Filter>Desenvolupament  ========\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Desenvolupament  ========\Gui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Programacio 2 ===========">
