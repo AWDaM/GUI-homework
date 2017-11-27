@@ -6,6 +6,10 @@
 #include "j1Fonts.h"
 #include "j1Input.h"
 #include "j1Gui.h"
+#include "UIElement.h"
+#include"Label.h"
+#include "Image.h"
+#include "Interactive.h"
 
 j1Gui::j1Gui() : j1Module()
 {
@@ -51,8 +55,53 @@ bool j1Gui::PostUpdate()
 bool j1Gui::CleanUp()
 {
 	LOG("Freeing GUI");
-
+	for (p2List_item<UIElement*>* item = elements.start; item; item = item->next)
+	{
+		RELEASE(item->data);
+	}
+	elements.clear();
 	return true;
+}
+
+UIElement * j1Gui::AddElement(UIType type, iPoint position, iPoint positionOffset)
+{
+	UIElement* ret = nullptr;
+	switch (type)
+	{
+	case INTERACTIVE:
+		ret = new Interactive();
+		break;
+	case IMAGE:
+		ret = new Image();
+		break;
+	case LABEL:
+		ret = new Label();
+		break;
+	case INTERACTIVE_IMAGE:
+		//
+		break;
+	case INTERACTIVE_LABELLED_IMAGE:
+		//
+		break;
+	case INTERACTIVE_LABEL:
+		//
+		break;
+	case LABELLED_IMAGE:
+		//
+		break;
+	default:
+		//
+		break;
+	}
+	
+	elements.add(ret);
+	return ret;
+}
+
+UIElement * j1Gui::DeleteElement(UIElement * element)
+{
+	
+	return nullptr;
 }
 
 // const getter for atlas
