@@ -3,14 +3,20 @@
 
 #include "UIElement.h"
 
+struct SDL_Texture;
+
 class Image : public UIElement
 {
+public:
+	Image();
+	~Image();
+	
 public:
 	virtual bool Update(float dt);
 	virtual bool Draw();
 
-	Image();
-	~Image();
+public:
+	SDL_Texture* image;
 };
 
 #endif

@@ -6,11 +6,16 @@
 class Interactive : public UIElement
 {
 public:
+	Interactive();
+	~Interactive();
+
+public:
 	virtual bool Update(float dt);
 	virtual bool Draw();
 
-	Interactive();
-	~Interactive();
+public:
+	SDL_Rect buttonMargin;
+
 };
 
 #endif
