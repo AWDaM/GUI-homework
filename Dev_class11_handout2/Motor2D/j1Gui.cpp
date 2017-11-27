@@ -7,7 +7,7 @@
 #include "j1Input.h"
 #include "j1Gui.h"
 #include "UIElement.h"
-#include"Label.h"
+#include "Label.h"
 #include "Image.h"
 #include "Interactive.h"
 
@@ -69,13 +69,13 @@ UIElement * j1Gui::AddElement(UIType type, iPoint position, iPoint positionOffse
 	switch (type)
 	{
 	case INTERACTIVE:
-		ret = new Interactive();
+		//ret = new Interactive();
 		break;
 	case IMAGE:
-		ret = new Image();
+		//ret = new Image();
 		break;
 	case LABEL:
-		ret = new Label();
+		//ret = new Label();
 		break;
 	case INTERACTIVE_IMAGE:
 		//
@@ -114,7 +114,7 @@ UIElement * j1Gui::DeleteElement(UIElement * element)
 	return item->data;
 }
 
-UIElement * j1Gui::AddImage_From_otherFile(iPoint position, p2SString * path)
+UIElement* j1Gui::AddImage_From_otherFile(iPoint position, p2SString * path)
 {
 	UIElement* element = new Image(path);
 

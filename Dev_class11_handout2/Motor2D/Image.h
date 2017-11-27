@@ -2,6 +2,7 @@
 #define __IMAGE_H__
 
 #include "UIElement.h"
+#include "p2sString.h"
 
 struct SDL_Texture;
 
@@ -13,9 +14,8 @@ public:
 	~Image();
 	
 public:
-	virtual bool Update(float dt);
-	virtual bool Draw();
-
+	virtual bool Update(float dt) { return true; }
+	virtual bool Draw() { return true; }
 public:
 	SDL_Texture* image;
 };
