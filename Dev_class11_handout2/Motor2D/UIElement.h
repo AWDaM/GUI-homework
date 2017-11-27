@@ -15,6 +15,7 @@ public:
 
 
 	UIElement();
+	UIElement(iPoint position, iPoint positionOffset);
 	~UIElement();
 
 public:
