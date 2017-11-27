@@ -2,6 +2,7 @@
 #define __UIELEMENT_H__
 
 #include "p2Point.h"
+#include "SDL/include/SDL.h"
 
 class UIElement
 {
