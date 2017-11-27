@@ -130,7 +130,7 @@ UIElement * j1Gui::DeleteElement(UIElement * element)
 
 UIElement* j1Gui::AddImage_From_otherFile(iPoint position, p2SString * path)
 {
-	UIElement* element = new Image(path);
+	UIElement* element = new Image();
 
 	elements.add(element);
 	return element;

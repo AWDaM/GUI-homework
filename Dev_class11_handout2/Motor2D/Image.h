@@ -12,7 +12,7 @@ class Image : public UIElement
 public:
 	Image();
 	Image(iPoint position, iPoint positionOffset, SDL_Rect& image);
-	Image(p2SString* path, iPoint position, iPoint positionOffset, SDL_Rect& image);
+	//Image(p2SString* path, iPoint position, iPoint positionOffset, SDL_Rect& image);
 	~Image();
 	
 public:

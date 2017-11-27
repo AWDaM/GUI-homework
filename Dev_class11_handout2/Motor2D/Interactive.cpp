@@ -14,7 +14,7 @@ Interactive::~Interactive()
 {
 }
 
-bool Interactive::Update(float dt)
+bool Interactive::PreUpdate()
 {
 	SDL_Point mousePosition;
 	App->input->GetMousePosition(mousePosition.x, mousePosition.y);

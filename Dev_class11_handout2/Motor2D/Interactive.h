@@ -10,7 +10,7 @@ public:
 	~Interactive();
 
 public:
-	virtual bool Update(float dt);
+	virtual bool PreUpdate();
 	virtual bool Draw() { return true; }
 
 private:

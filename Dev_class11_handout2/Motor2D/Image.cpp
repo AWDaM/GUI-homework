@@ -5,12 +5,12 @@
 
 Image::Image(iPoint position, iPoint positionOffset, SDL_Rect &image) : UIElement(position,positionOffset)
 {
-	this->image = image;
+	image_section = image;
 }
 
-Image::Image(p2SString* path)
+Image::Image()
 {
-	image = App->tex->Load(path->GetString());
+//	image_section = App->tex->Load(path->GetString());
 }
 
 
