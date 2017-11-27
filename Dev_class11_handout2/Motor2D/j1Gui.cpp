@@ -69,13 +69,13 @@ UIElement * j1Gui::AddElement(UIType type, iPoint position, iPoint positionOffse
 	switch (type)
 	{
 	case INTERACTIVE:
-		//ret = new Interactive();
+		ret = new Interactive(position);
 		break;
 	case IMAGE:
-		//ret = new Image();
+		ret = new Image();
 		break;
 	case LABEL:
-		//ret = new Label();
+		ret = new Label();
 		break;
 	case INTERACTIVE_IMAGE:
 		//

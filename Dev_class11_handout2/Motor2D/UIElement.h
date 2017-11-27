@@ -3,6 +3,7 @@
 
 #include "p2Point.h"
 #include "SDL/include/SDL.h"
+#include "j1App.h"
 
 class UIElement
 {

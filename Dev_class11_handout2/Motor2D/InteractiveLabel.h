@@ -7,7 +7,7 @@
 class InteractiveLabel : public Interactive, public Label
 {
 public:
-	InteractiveLabel();
+	InteractiveLabel(iPoint pos);
 	~InteractiveLabel();
 };
 

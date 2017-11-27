@@ -2,7 +2,7 @@
 
 
 
-InteractiveImage::InteractiveImage()
+InteractiveImage::InteractiveImage(iPoint pos) : Interactive(pos)
 {
 }
 
