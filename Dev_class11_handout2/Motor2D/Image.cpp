@@ -3,8 +3,9 @@
 #include "j1Textures.h"
 
 
-Image::Image()
+Image::Image(iPoint position, iPoint positionOffset, SDL_Rect &image) : UIElement(position,positionOffset)
 {
+	this->image = image;
 }
 
 Image::Image(p2SString* path)

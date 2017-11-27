@@ -26,7 +26,7 @@ bool j1Gui::Awake(pugi::xml_node& conf)
 	LOG("Loading GUI atlas");
 	bool ret = true;
 
-	atlas_file_name = conf.child("atlas").attribute("file").as_string("");
+	atlas_file_name = conf.child("WOWatlas").attribute("file").as_string("");
 
 	return ret;
 }
@@ -42,13 +42,27 @@ bool j1Gui::Start()
 // Update all guis
 bool j1Gui::PreUpdate()
 {
-	return true;
+	bool ret = true;
+	for (p2List_item<UIElement*>* item = elements.start; item; item = item->next)
+	{
+		item->data->PreUpdate();
+		if (!ret)
+			break;
+	}
+	return ret;
 }
 
 // Called after all Updates
 bool j1Gui::PostUpdate()
 {
-	return true;
+	bool ret = true;
+	for (p2List_item<UIElement*>* item = elements.start; item; item = item->next)
+	{
+		ret = item->data->PostUpdate();
+		if (!ret)
+			break;
+	}
+	return ret;
 }
 
 // Called before quitting
