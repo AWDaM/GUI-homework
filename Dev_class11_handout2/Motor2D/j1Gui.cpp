@@ -85,13 +85,13 @@ UIElement * j1Gui::AddElement(UIType type, iPoint position, iPoint positionOffse
 	switch (type)
 	{
 	case INTERACTIVE:
-		//ret = new Interactive();
+		ret = new Interactive(position);
 		break;
 	case IMAGE:
-		//ret = new Image();
+		ret = new Image();
 		break;
 	case LABEL:
-		//ret = new Label();
+		ret = new Label();
 		break;
 	case INTERACTIVE_IMAGE:
 		//
@@ -132,6 +132,7 @@ UIElement * j1Gui::DeleteElement(UIElement * element)
 
 UIElement* j1Gui::AddImage_From_otherFile(iPoint position, iPoint positionOffset, p2SString * path, SDL_Rect* section)
 {
+
 	UIElement* element = new Image(path,position, positionOffset, section);
 
 	elements.add(element);

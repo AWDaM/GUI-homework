@@ -7,7 +7,7 @@
 class InteractiveImage : public Interactive, public Image
 {
 public:
-	InteractiveImage();
+	InteractiveImage(iPoint pos);
 	~InteractiveImage();
 };
 

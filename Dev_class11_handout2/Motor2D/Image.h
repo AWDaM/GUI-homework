@@ -13,11 +13,13 @@ public:
 	Image();
 	Image(iPoint position, iPoint positionOffset);
 	Image(p2SString* path, iPoint position, iPoint positionOffset, SDL_Rect* image = nullptr);
+
 	~Image();
 	
 public:
 	virtual bool PreUpdate();
 	virtual bool Update(float dt) { return true; }
+	virtual bool PostUpdate();
 	virtual bool Draw();
 public:
 	SDL_Rect image_section;

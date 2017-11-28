@@ -7,6 +7,7 @@
 
 Image::Image()
 {
+
 }
 
 Image::Image(iPoint position, iPoint positionOffset) : UIElement(position, positionOffset)
@@ -16,8 +17,12 @@ Image::Image(iPoint position, iPoint positionOffset) : UIElement(position, posit
 
 Image::Image(p2SString* path, iPoint position, iPoint positionOffset, SDL_Rect* image) : UIElement(position,positionOffset)
 {
-	image_section = *image;
+	if (image)
+		image_section = *image;
+	else
+		image_section = { 0,0,0,0 };
 	this->image = App->tex->Load(path->GetString());
+
 }
 
 
@@ -26,6 +31,12 @@ Image::~Image()
 }
 
 bool Image::PreUpdate()
+{
+	Draw();
+	return true;
+}
+
+bool Image::PostUpdate()
 {
 	Draw();
 	return true;

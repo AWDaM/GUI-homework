@@ -2,7 +2,7 @@
 
 
 
-InteractiveLabel::InteractiveLabel()
+InteractiveLabel::InteractiveLabel(iPoint pos) : Interactive(pos)
 {
 }
 

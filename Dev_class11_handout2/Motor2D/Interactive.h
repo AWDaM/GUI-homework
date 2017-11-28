@@ -6,16 +6,20 @@
 class Interactive : public UIElement
 {
 public:
-	Interactive();
+	Interactive(iPoint pos);
 	~Interactive();
 
 public:
-	virtual bool Update(float dt) { return true; }
+	virtual bool PreUpdate();
 	virtual bool Draw() { return true; }
 
-public:
-	SDL_Rect buttonMargin;
+private:
+	void OnClick();
+	void OnMouseOver();
 
+public:
+	SDL_Rect	buttonMargin;
+	bool		isMouseInside = false;
 };
 
 #endif
