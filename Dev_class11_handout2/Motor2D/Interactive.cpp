@@ -9,12 +9,18 @@ Interactive::Interactive(iPoint pos) : UIElement()
 	buttonMargin.y = pos.y;
 }
 
+Interactive::Interactive(iPoint pos, iPoint posOffset, SDL_Rect size, j1Module * callback) : UIElement(pos,posOffset)
+{
+	buttonMargin = size;
+	this->callback = callback;
+}
+
 
 Interactive::~Interactive()
 {
 }
 
-bool Interactive::PreUpdate()
+bool Interactive::InteractivePreUpdate()
 {
 	SDL_Point mousePosition;
 	App->input->GetMousePosition(mousePosition.x, mousePosition.y);

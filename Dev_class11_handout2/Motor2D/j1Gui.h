@@ -47,26 +47,29 @@ public:
 	// TODO 2: Create the factory methods
 	UIElement* AddElement(UIType type, iPoint position, iPoint positionOffset);
 
-	UIElement* AddImage(iPoint position, iPoint positionOffset);
-	UIElement* AddInteractive(UIType type, iPoint position, iPoint positionOffset);
-	UIElement* AddLabel(UIType type, iPoint position, iPoint positionOffset);
-	UIElement* AddInteractiveImage(UIType type, iPoint position, iPoint positionOffset);
-	UIElement* AddInteractiveLabel(UIType type, iPoint position, iPoint positionOffset);
-	UIElement* AddInteractiveLabelledImage(UIType type, iPoint position, iPoint positionOffset);
-	UIElement* AddLabelledImage(UIType type, iPoint position, iPoint positionOffset);
+	UIElement* AddImage(iPoint position, iPoint positionOffset, SDL_Rect* section);
+	UIElement* AddInteractive(iPoint position, iPoint positionOffset, SDL_Rect* size);
+	UIElement* AddLabel(iPoint position, iPoint positionOffset);
+	InteractiveImage* AddInteractiveImage(iPoint position, iPoint positionOffsetA, iPoint positionOffsetB, SDL_Rect interactiveSection, SDL_Rect image_section, j1Module* callback);
+	UIElement* AddInteractiveLabel(iPoint position, iPoint positionOffset);
+	UIElement* AddInteractiveLabelledImage(iPoint position, iPoint positionOffset);
+	UIElement* AddLabelledImage(iPoint position, iPoint positionOffset);
 
 	UIElement* DeleteElement(UIElement* element);
 
 	UIElement* AddImage_From_otherFile(iPoint position, iPoint positionOffset, p2SString* path, SDL_Rect* section = nullptr);
 	// Gui creation functions
 
+	bool CreateSceneIntroGUI();
+
 	SDL_Texture* GetAtlas() const;
 
 private:
 
 	p2List<UIElement*> elements;
-	SDL_Texture* atlas;
+	SDL_Texture* atlas = nullptr;
 	p2SString atlas_file_name;
+	p2SString background;
 };
 
 #endif // __j1GUI_H__

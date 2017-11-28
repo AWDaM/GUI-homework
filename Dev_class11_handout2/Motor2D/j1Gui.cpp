@@ -10,6 +10,7 @@
 #include "Label.h"
 #include "Image.h"
 #include "Interactive.h"
+#include "InteractiveImage.h"
 
 j1Gui::j1Gui() : j1Module()
 {
@@ -27,6 +28,8 @@ bool j1Gui::Awake(pugi::xml_node& conf)
 	bool ret = true;
 
 	atlas_file_name = conf.child("WOWatlas").attribute("file").as_string("");
+	background = conf.child("background").attribute("file").as_string("");
+
 
 	return ret;
 }
@@ -34,9 +37,9 @@ bool j1Gui::Awake(pugi::xml_node& conf)
 // Called before the first frame
 bool j1Gui::Start()
 {
-	p2SString* x = new p2SString("login_background");
+	
 	atlas = App->tex->Load(atlas_file_name.GetString());
-	AddImage_From_otherFile({ 0,0 }, { 0,0 },x);
+	CreateSceneIntroGUI();
 
 	return true;
 }
@@ -61,6 +64,7 @@ bool j1Gui::PostUpdate()
 	for (p2List_item<UIElement*>* item = elements.start; item; item = item->next)
 	{
 		ret = item->data->PostUpdate();
+		ret = item->data->Draw();
 		if (!ret)
 			break;
 	}
@@ -114,6 +118,21 @@ UIElement * j1Gui::AddElement(UIType type, iPoint position, iPoint positionOffse
 	return ret;
 }
 
+UIElement * j1Gui::AddImage(iPoint position, iPoint positionOffset, SDL_Rect * section)
+{
+	UIElement* ret = new Image(position, positionOffset, *section);
+	elements.add(ret);
+	return ret;
+}
+
+InteractiveImage * j1Gui::AddInteractiveImage(iPoint position, iPoint positionOffsetA, iPoint positionOffsetB, SDL_Rect interactiveSection, SDL_Rect image_section, j1Module * callback)
+{
+
+	return nullptr;
+}
+
+
+
 UIElement * j1Gui::DeleteElement(UIElement * element)
 {
 	int index = elements.find(element);
@@ -137,6 +156,12 @@ UIElement* j1Gui::AddImage_From_otherFile(iPoint position, iPoint positionOffset
 
 	elements.add(element);
 	return element;
+}
+
+bool j1Gui::CreateSceneIntroGUI()
+{
+	AddImage_From_otherFile({ 0,0 }, { 0,0 }, &background);
+	return true;
 }
 
 // const getter for atlas
