@@ -21,11 +21,11 @@ bool Interactive::PreUpdate()
 
 	if (SDL_PointInRect(&mousePosition, &buttonMargin))
 	{
-		if (!isMouseInside)
-			OnMouseOver();
+		//if (!isMouseInside)
+			//OnMouseOver();
 
 		if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
-			OnClick();
+			App->OnClick();
 	}
 	else
 		isMouseInside = false;

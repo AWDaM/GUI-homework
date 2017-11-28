@@ -7,6 +7,7 @@
 #define __j1MODULE_H__
 
 #include "p2SString.h"
+#include "p2Point.h"
 #include "PugiXml\src\pugixml.hpp"
 
 class j1App;
@@ -68,6 +69,11 @@ public:
 	}
 
 	virtual bool Save(pugi::xml_node&) const
+	{
+		return true;
+	}
+
+	virtual bool OnEvent(UIElement* element, int eventType)
 	{
 		return true;
 	}

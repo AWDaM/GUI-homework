@@ -2,7 +2,17 @@
 #define __j1GUI_H__
 
 #include "j1Module.h"
+#include "j1App.h"
 
+enum EventTypes
+{
+	LEFT_MOUSE_PRESSED,
+	LEFT_MOUSE_RELEASED,
+	RIGHT_MOUSE_PRESSED,
+	RIGHT_MOUSE_RELEASED,
+	MOUSE_HOVER_IN,
+	MOUSE_HOVER_OUT,
+};
 
 
 #define CURSOR_WIDTH 2

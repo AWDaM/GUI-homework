@@ -3,6 +3,7 @@
 
 #include "UIElement.h"
 #include "p2SString.h"
+#include "SDL/include/SDL_rect.h"
 
 struct SDL_Texture;
 
@@ -21,9 +22,10 @@ public:
 	virtual bool Update(float dt) { return true; }
 	virtual bool PostUpdate();
 	virtual bool Draw();
+
 public:
 	SDL_Rect image_section;
-	 SDL_Texture* image = nullptr;
+	SDL_Texture* image = nullptr;
 };
 
 #endif

@@ -2,6 +2,7 @@
 #define __INTERACTIVE_H__
 
 #include "UIElement.h"
+#include "SDL/include/SDL.h"
 
 class Interactive : public UIElement
 {
@@ -14,8 +15,8 @@ public:
 	virtual bool Draw() { return true; }
 
 private:
-	void OnClick();
-	void OnMouseOver();
+	//void OnClick();
+	//void OnMouseOver();
 
 public:
 	SDL_Rect	buttonMargin;
