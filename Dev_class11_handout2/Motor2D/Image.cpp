@@ -22,7 +22,7 @@ Image::Image(p2SString* path, iPoint position, iPoint positionOffset, SDL_Rect* 
 	else
 		image_section = { 0,0,0,0 };
 	this->image = App->tex->Load(path->GetString());
-
+	//return null need to check TODO
 }
 
 
