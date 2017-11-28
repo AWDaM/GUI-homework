@@ -34,7 +34,9 @@ bool j1Gui::Awake(pugi::xml_node& conf)
 // Called before the first frame
 bool j1Gui::Start()
 {
+	p2SString* x = new p2SString("login_background");
 	atlas = App->tex->Load(atlas_file_name.GetString());
+	AddImage_From_otherFile({ 0,0 }, { 0,0 },x);
 
 	return true;
 }
@@ -128,16 +130,16 @@ UIElement * j1Gui::DeleteElement(UIElement * element)
 	return item->data;
 }
 
-UIElement* j1Gui::AddImage_From_otherFile(iPoint position, p2SString * path)
+UIElement* j1Gui::AddImage_From_otherFile(iPoint position, iPoint positionOffset, p2SString * path, SDL_Rect* section)
 {
-	UIElement* element = new Image(path);
+	UIElement* element = new Image(path,position, positionOffset, section);
 
 	elements.add(element);
 	return element;
 }
 
 // const getter for atlas
-const SDL_Texture* j1Gui::GetAtlas() const
+ SDL_Texture* j1Gui::GetAtlas() const
 {
 	return atlas;
 }

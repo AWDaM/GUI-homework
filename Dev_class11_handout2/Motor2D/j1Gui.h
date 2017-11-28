@@ -49,10 +49,10 @@ public:
 
 	UIElement* DeleteElement(UIElement* element);
 
-	UIElement* AddImage_From_otherFile(iPoint position, p2SString* path);
+	UIElement* AddImage_From_otherFile(iPoint position, iPoint positionOffset, p2SString* path, SDL_Rect* section = nullptr);
 	// Gui creation functions
 
-	const SDL_Texture* GetAtlas() const;
+	SDL_Texture* GetAtlas() const;
 
 private:
 
