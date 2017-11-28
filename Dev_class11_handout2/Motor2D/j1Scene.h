@@ -34,6 +34,8 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
+	bool OnEvent(UIElement* element, int eventType);
+
 private:
 	SDL_Texture* debug_tex;
 	GuiImage* banner;

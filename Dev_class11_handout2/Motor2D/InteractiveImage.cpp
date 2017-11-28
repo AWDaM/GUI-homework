@@ -21,6 +21,16 @@ bool InteractiveImage::PreUpdate()
 	return true;
 }
 
+bool InteractiveImage::Update(float dt)
+{
+	return true;
+}
+
+bool InteractiveImage::PostUpdate()
+{
+	return true;
+}
+
 bool InteractiveImage::Draw()
 {
 	InteractiveDraw();

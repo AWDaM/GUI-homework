@@ -3,9 +3,14 @@
 
 #include "j1Module.h"
 
+#include "j1App.h"
+#include "SDL/include/SDL_rect.h"
+struct SDL_Texture;
+
 
 enum EventTypes
 {
+	DEFAULT_TYPE = -1,
 	LEFT_MOUSE_PRESSED,
 	LEFT_MOUSE_RELEASED,
 	RIGHT_MOUSE_PRESSED,
@@ -59,6 +64,7 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
+	bool EventLoop();
 	// TODO 2: Create the factory methods
 	UIElement* AddElement(UIType type, iPoint position, iPoint positionOffset);
 
@@ -78,10 +84,10 @@ public:
 	bool CreateSceneIntroGUI();
 
 	SDL_Texture* GetAtlas() const;
+	p2List<UIElement*> elements;
 
 private:
 
-	p2List<UIElement*> elements;
 	SDL_Texture* atlas = nullptr;
 	p2SString atlas_file_name;
 	p2SString background;
