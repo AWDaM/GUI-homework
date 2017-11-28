@@ -11,6 +11,7 @@
 #include "PugiXml\src\pugixml.hpp"
 
 class j1App;
+class UIElement;
 
 class j1Module
 {

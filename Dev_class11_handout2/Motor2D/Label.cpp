@@ -2,6 +2,16 @@
 
 
 
+bool Label::LabelUpdate(float dt)
+{
+	return true;
+}
+
+bool Label::LabelDraw()
+{
+	return true;
+}
+
 Label::Label()
 {
 }

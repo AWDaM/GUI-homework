@@ -19,10 +19,10 @@ public:
 	~Image();
 	
 public:
-	virtual bool PreUpdate();
-	virtual bool Update(float dt) { return true; }
-	virtual bool PostUpdate();
-	virtual bool Draw();
+	 bool ImagePreUpdate();
+	 bool ImageUpdate(float dt) { return true; }
+	 bool ImagePostUpdate();
+	 bool ImageDraw();
 
 public:
 	SDL_Rect image_section;

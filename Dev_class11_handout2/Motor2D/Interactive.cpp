@@ -30,8 +30,8 @@ bool Interactive::InteractivePreUpdate()
 		//if (!isMouseInside)
 			//OnMouseOver();
 
-		if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
-			App->OnClick();
+		//if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
+		//	App->OnClick();
 	}
 	else
 		isMouseInside = false;
@@ -39,13 +39,18 @@ bool Interactive::InteractivePreUpdate()
 	return true;
 }
 
-void Interactive::OnClick()
+bool Interactive::InteractiveDraw()
 {
-	LOG("I've been pressed! :S");
+	return true;
 }
 
-void Interactive::OnMouseOver()
-{
-	LOG("The mouse is over me! o.O");
-	isMouseInside = true;
-}
+//void Interactive::OnClick()
+//{
+//	LOG("I've been pressed! :S");
+//}
+//
+//void Interactive::OnMouseOver()
+//{
+//	LOG("The mouse is over me! o.O");
+//	isMouseInside = true;
+//}

@@ -14,3 +14,16 @@ InteractiveImage::InteractiveImage(iPoint pos, iPoint posOffsetA, iPoint posOffs
 InteractiveImage::~InteractiveImage()
 {
 }
+
+bool InteractiveImage::PreUpdate()
+{
+	InteractivePreUpdate();
+	return true;
+}
+
+bool InteractiveImage::Draw()
+{
+	InteractiveDraw();
+	ImageDraw();
+	return true;
+}

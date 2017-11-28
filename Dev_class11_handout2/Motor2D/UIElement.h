@@ -3,6 +3,7 @@
 
 #include "p2Point.h"
 #include "j1App.h"
+#include "j1Gui.h"
 
 class UIElement
 {
@@ -20,6 +21,7 @@ public:
 public:
 	iPoint position;
 	iPoint positionOffset;
+	UIType type;
 
 };
 

@@ -7,8 +7,8 @@
 class Label : virtual public UIElement
 {
 public:
-	virtual bool Update(float dt) { return true; }
-	virtual bool Draw() { return true; }
+	bool LabelUpdate(float dt);
+	bool LabelDraw();
 
 	Label();
 	Label(iPoint position, iPoint positionOffset, p2SString label);

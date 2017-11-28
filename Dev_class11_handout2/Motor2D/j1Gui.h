@@ -2,7 +2,7 @@
 #define __j1GUI_H__
 
 #include "j1Module.h"
-#include "j1App.h"
+
 
 enum EventTypes
 {
@@ -29,6 +29,9 @@ enum UIType
 };
 // TODO 1: Create your structure of classes
 class UIElement;
+class InteractiveImage;
+struct SDL_Rect;
+struct SDL_Texture;
 // ---------------------------------------------------
 class j1Gui : public j1Module
 {
@@ -50,6 +53,8 @@ public:
 
 	// Called after all Updates
 	bool PostUpdate();
+
+	bool Draw();
 
 	// Called before quitting
 	bool CleanUp();

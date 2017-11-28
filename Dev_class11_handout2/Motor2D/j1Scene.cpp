@@ -33,10 +33,10 @@ bool j1Scene::Awake()
 // Called before the first frame
 bool j1Scene::Start()
 {
-	Interactive* test = (Interactive*)App->gui->AddElement(UIType::INTERACTIVE, { 0,0 }, { 0,0 });
+	/*Interactive* test = (Interactive*)App->gui->AddElement(UIType::INTERACTIVE, { 0,0 }, { 0,0 });
 
 	test->buttonMargin.h = 1000;
-	test->buttonMargin.w = 1000;
+	test->buttonMargin.w = 1000;*/
 
 	if(App->map->Load("iso_walk.tmx") == true)
 	{

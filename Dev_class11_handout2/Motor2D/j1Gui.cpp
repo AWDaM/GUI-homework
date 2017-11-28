@@ -64,10 +64,23 @@ bool j1Gui::PostUpdate()
 	for (p2List_item<UIElement*>* item = elements.start; item; item = item->next)
 	{
 		ret = item->data->PostUpdate();
-		ret = item->data->Draw();
+		
 		if (!ret)
 			break;
 	}
+	return ret;
+}
+
+bool j1Gui::Draw()
+{
+	bool ret = true;
+	for (p2List_item<UIElement*>* item = elements.start; item; item = item->next)
+	{
+		item->data->Draw();
+		if (!ret)
+			break;
+	}
+
 	return ret;
 }
 
@@ -127,9 +140,9 @@ UIElement * j1Gui::AddImage(iPoint position, iPoint positionOffset, SDL_Rect * s
 
 InteractiveImage * j1Gui::AddInteractiveImage(iPoint position, iPoint positionOffsetA, iPoint positionOffsetB, SDL_Rect interactiveSection, SDL_Rect image_section, j1Module * callback)
 {
-
 	return nullptr;
 }
+
 
 
 

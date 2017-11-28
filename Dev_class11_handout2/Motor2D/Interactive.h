@@ -13,7 +13,7 @@ public:
 
 public:
 	 bool InteractivePreUpdate();
-	virtual bool InteractiveDraw() { return true; }
+	 bool InteractiveDraw();
 
 private:
 	//void OnClick();

@@ -1,7 +1,7 @@
 #include "Image.h"
 #include "j1App.h"
 #include "j1Textures.h"
-#include "j1Gui.h"
+
 #include "j1Render.h"
 
 
@@ -40,17 +40,17 @@ Image::~Image()
 {
 }
 
-bool Image::PreUpdate()
+bool Image::ImagePreUpdate()
 {
 	return true;
 }
 
-bool Image::PostUpdate()
+bool Image::ImagePostUpdate()
 {
 	return true;
 }
 
-bool Image::Draw()
+bool Image::ImageDraw()
 {
 	App->render->Blit(image, position.x + positionOffset.x, position.y + positionOffset.y, &image_section);
 	return true;
