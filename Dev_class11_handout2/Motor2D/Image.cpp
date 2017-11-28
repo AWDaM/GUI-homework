@@ -21,7 +21,7 @@ Image::Image(p2SString* path, iPoint position, iPoint positionOffset, SDL_Rect* 
 		image_section = *image;
 	else
 		image_section = { 0,0,0,0 };
-	this->image = App->tex->Load(path->GetString());
+	this->image = App->tex->Load("gui/login_background.png");
 	//return null need to check TODO
 }
 

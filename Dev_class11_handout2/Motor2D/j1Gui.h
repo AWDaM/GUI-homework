@@ -47,6 +47,14 @@ public:
 	// TODO 2: Create the factory methods
 	UIElement* AddElement(UIType type, iPoint position, iPoint positionOffset);
 
+	UIElement* AddImage(iPoint position, iPoint positionOffset);
+	UIElement* AddInteractive(UIType type, iPoint position, iPoint positionOffset);
+	UIElement* AddLabel(UIType type, iPoint position, iPoint positionOffset);
+	UIElement* AddInteractiveImage(UIType type, iPoint position, iPoint positionOffset);
+	UIElement* AddInteractiveLabel(UIType type, iPoint position, iPoint positionOffset);
+	UIElement* AddInteractiveLabelledImage(UIType type, iPoint position, iPoint positionOffset);
+	UIElement* AddLabelledImage(UIType type, iPoint position, iPoint positionOffset);
+
 	UIElement* DeleteElement(UIElement* element);
 
 	UIElement* AddImage_From_otherFile(iPoint position, iPoint positionOffset, p2SString* path, SDL_Rect* section = nullptr);
