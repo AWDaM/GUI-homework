@@ -33,10 +33,8 @@ bool j1Scene::Awake()
 // Called before the first frame
 bool j1Scene::Start()
 {
-	Interactive* test = (Interactive*)App->gui->AddElement(UIType::INTERACTIVE, { 0,0 }, { 0,0 });
-
-	test->buttonMargin.h = 1000;
-	test->buttonMargin.w = 1000;
+	Interactive* test = new Interactive({ -64,-64 }, { 0,0 }, { -64,-64,1000,1000 }, this);
+	App->gui->elements.add(test);
 
 	if(App->map->Load("iso_walk.tmx") == true)
 	{
@@ -157,6 +155,14 @@ bool j1Scene::PostUpdate()
 bool j1Scene::CleanUp()
 {
 	LOG("Freeing scene");
+
+	return true;
+}
+
+bool j1Scene::OnEvent(UIElement* element, int eventType)
+{
+	if(eventType == EventTypes::MOUSE_HOVER_IN)
+		LOG("deez nuts");
 
 	return true;
 }

@@ -14,13 +14,13 @@ public:
 public:
 	 bool InteractivePreUpdate();
 	virtual bool InteractiveDraw() { return true; }
+	bool CheckEvents();
 
 private:
 	//void OnClick();
 	//void OnMouseOver();
 
 public:
-	j1Module* callback;
 	SDL_Rect	buttonMargin;
 	bool		isMouseInside = false;
 };

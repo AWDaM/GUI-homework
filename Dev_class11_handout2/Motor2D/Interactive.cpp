@@ -9,11 +9,9 @@ Interactive::Interactive(iPoint pos) : UIElement()
 	buttonMargin.y = pos.y;
 }
 
-Interactive::Interactive(iPoint pos, iPoint posOffset, SDL_Rect size, j1Module * callback) : UIElement(pos,posOffset)
-{
-	buttonMargin = size;
-	this->callback = callback;
-}
+Interactive::Interactive(iPoint pos, iPoint posOffset, SDL_Rect size, j1Module* callback) : buttonMargin(size),
+	UIElement(pos, posOffset, UIType::INTERACTIVE, callback)
+{}
 
 
 Interactive::~Interactive()
@@ -30,8 +28,8 @@ bool Interactive::InteractivePreUpdate()
 		//if (!isMouseInside)
 			//OnMouseOver();
 
-		if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
-			App->OnClick();
+		//if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
+			//App->OnClick();
 	}
 	else
 		isMouseInside = false;
@@ -39,13 +37,17 @@ bool Interactive::InteractivePreUpdate()
 	return true;
 }
 
-void Interactive::OnClick()
+bool Interactive::CheckEvents()
 {
-	LOG("I've been pressed! :S");
-}
+	bool ret = true;
 
-void Interactive::OnMouseOver()
-{
-	LOG("The mouse is over me! o.O");
-	isMouseInside = true;
+	SDL_Point mousePosition;
+	App->input->GetMousePosition(mousePosition.x, mousePosition.y);
+
+	if (SDL_PointInRect(&mousePosition, &buttonMargin))
+	{
+		callback->OnEvent(this, EventTypes::MOUSE_HOVER_IN);
+	}
+
+	return ret;
 }

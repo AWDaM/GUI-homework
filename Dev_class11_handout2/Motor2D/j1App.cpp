@@ -436,24 +436,3 @@ bool j1App::SavegameNow() const
 	return ret;
 }
 
-bool j1App::OnClick(iPoint mousePos)
-{
-	bool ret = true;
-
-	p2List_item<j1Module*>* item;
-	item = modules.start;
-	j1Module* pModule = NULL;
-
-	for (item = modules.start; item != NULL && ret == true; item = item->next)
-	{
-		pModule = item->data;
-
-		if (pModule->active == false) {
-			continue;
-		}
-
-		ret = item->data->OnClick(mousePos);
-	}
-
-	return ret;
-}
