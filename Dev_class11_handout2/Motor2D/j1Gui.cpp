@@ -48,7 +48,6 @@ bool j1Gui::Start()
 bool j1Gui::PreUpdate()
 {
 	bool ret = true;
-	ret = EventLoop();
 	for (p2List_item<UIElement*>* item = elements.start; item; item = item->next)
 	{
 		item->data->PreUpdate();
@@ -97,19 +96,6 @@ bool j1Gui::CleanUp()
 	return true;
 }
 
-bool j1Gui::EventLoop()
-{
-	bool ret = true;
-	for (p2List_item<UIElement*>* item = elements.start; item; item = item->next)
-	{
-		if(item->data->type == UIType::INTERACTIVE)
-		ret = item->data->CheckEvents();
-		if (!ret)
-			break;
-	}
-	return ret;
-}
-
 UIElement * j1Gui::AddElement(UIType type, iPoint position, iPoint positionOffset)
 {
 	UIElement* ret = nullptr;
@@ -149,6 +135,14 @@ UIElement * j1Gui::AddImage(iPoint position, iPoint positionOffset, SDL_Rect * s
 {
 	UIElement* ret = new Image(position, positionOffset, *section);
 	elements.add(ret);
+	return ret;
+}
+
+Interactive* j1Gui::AddInteractive(iPoint position, iPoint positionOffset, SDL_Rect * size, j1Module* callback)
+{
+	Interactive* ret = new Interactive(position, positionOffset, *size, callback);
+	elements.add(ret);
+
 	return ret;
 }
 

@@ -26,6 +26,7 @@ private:
 public:
 	SDL_Rect	buttonMargin;
 	bool		isMouseInside = false;
+	j1Module* callback = nullptr;
 };
 
 #endif

@@ -10,7 +10,7 @@ Interactive::Interactive(iPoint pos) : UIElement()
 }
 
 Interactive::Interactive(iPoint pos, iPoint posOffset, SDL_Rect size, j1Module* callback) : buttonMargin(size),
-	UIElement(pos, posOffset, UIType::INTERACTIVE, callback)
+	UIElement(pos, posOffset, UIType::INTERACTIVE)
 {}
 
 
@@ -20,18 +20,6 @@ Interactive::~Interactive()
 
 bool Interactive::InteractivePreUpdate()
 {
-
-	return true;
-}
-
-
-bool Interactive::InteractiveDraw()
-{
-	return true;
-}
-
-bool Interactive::CheckEvents()
-{
 	bool ret = true;
 
 	SDL_Point mousePosition;
@@ -39,9 +27,33 @@ bool Interactive::CheckEvents()
 
 	if (SDL_PointInRect(&mousePosition, &buttonMargin))
 	{
-		callback->OnEvent(this, EventTypes::MOUSE_HOVER_IN);
+		if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
+			callback->OnEvent(this, EventTypes::LEFT_MOUSE_PRESSED);
+		else if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_UP)
+			callback->OnEvent(this, EventTypes::LEFT_MOUSE_RELEASED);
+		else if (App->input->GetMouseButtonDown(SDL_BUTTON_RIGHT) == KEY_DOWN)
+			callback->OnEvent(this, EventTypes::RIGHT_MOUSE_PRESSED);
+		else if (App->input->GetMouseButtonDown(SDL_BUTTON_RIGHT) == KEY_UP)
+			callback->OnEvent(this, EventTypes::RIGHT_MOUSE_RELEASED);
+		else if (!isMouseInside)
+			callback->OnEvent(this, EventTypes::MOUSE_HOVER_IN);
+
+		isMouseInside = true;
+	}
+	else
+	{
+		if (isMouseInside)
+			callback->OnEvent(this, EventTypes::MOUSE_HOVER_OUT);
+
+		isMouseInside = false;
 	}
 
 	return ret;
+}
+
+
+bool Interactive::InteractiveDraw()
+{
+	return true;
 }
 

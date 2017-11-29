@@ -33,10 +33,15 @@ bool j1Scene::Awake()
 // Called before the first frame
 bool j1Scene::Start()
 {
+	SDL_Rect temp;
 
-	Interactive* test = new Interactive({ -64,-64 }, { 0,0 }, { -64,-64,1000,1000 }, this);
-	App->gui->elements.add(test);
+	temp.x = -64;
+	temp.y = -64;
+	temp.w = 1000;
+	temp.h = 1000;
 
+
+	UIElement* test = App->gui->AddInteractive({ -64,-64 }, { 0,0 }, &temp , this);
 
 	if(App->map->Load("iso_walk.tmx") == true)
 	{

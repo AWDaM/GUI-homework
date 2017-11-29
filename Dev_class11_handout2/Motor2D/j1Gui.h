@@ -34,6 +34,7 @@ enum UIType
 };
 // TODO 1: Create your structure of classes
 class UIElement;
+class Interactive;
 class InteractiveImage;
 struct SDL_Rect;
 struct SDL_Texture;
@@ -64,12 +65,11 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
-	bool EventLoop();
 	// TODO 2: Create the factory methods
 	UIElement* AddElement(UIType type, iPoint position, iPoint positionOffset);
 
 	UIElement* AddImage(iPoint position, iPoint positionOffset, SDL_Rect* section);
-	UIElement* AddInteractive(iPoint position, iPoint positionOffset, SDL_Rect* size);
+	Interactive* AddInteractive(iPoint position, iPoint positionOffset, SDL_Rect* size, j1Module* callback);
 	UIElement* AddLabel(iPoint position, iPoint positionOffset);
 	InteractiveImage* AddInteractiveImage(iPoint position, iPoint positionOffsetA, iPoint positionOffsetB, SDL_Rect interactiveSection, SDL_Rect image_section, j1Module* callback);
 	UIElement* AddInteractiveLabel(iPoint position, iPoint positionOffset);
