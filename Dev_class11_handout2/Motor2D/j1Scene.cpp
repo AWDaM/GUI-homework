@@ -41,7 +41,7 @@ bool j1Scene::Start()
 	temp.h = 1000;
 
 
-	UIElement* test = App->gui->AddInteractive({ -64,-64 }, { 0,0 }, &temp , this);
+	//InheritedInteractive* test = App->gui->AddInteractive({ -64,-64 }, { 0,0 }, temp , this);
 
 	if(App->map->Load("iso_walk.tmx") == true)
 	{
@@ -115,6 +115,7 @@ bool j1Scene::Update(float dt)
 		App->render->camera.x -= floor(200.0f * dt);
 
 	//App->map->Draw();
+	App->gui->Draw();
 
 	int x, y;
 	App->input->GetMousePosition(x, y);

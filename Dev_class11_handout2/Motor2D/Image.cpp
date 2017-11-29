@@ -28,8 +28,8 @@ Image::Image(p2SString& path, iPoint position, iPoint positionOffset) : UIElemen
 {
 	this->image = App->tex->Load(path.GetString());
 
-	//else
-	//	SDL_QueryTexture(this->image, nullptr, nullptr, &image_section.w, &image_section.h);
+	
+	SDL_QueryTexture(this->image, nullptr, nullptr, &image_section.w, &image_section.h);
 	
 	//return null need to check TODO
 }

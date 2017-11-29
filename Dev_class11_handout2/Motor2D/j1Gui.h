@@ -36,6 +36,7 @@ enum UIType
 class UIElement;
 class Interactive;
 class InteractiveImage;
+class InheritedInteractive;
 struct SDL_Rect;
 struct SDL_Texture;
 // ---------------------------------------------------
@@ -69,7 +70,7 @@ public:
 	UIElement* AddElement(UIType type, iPoint position, iPoint positionOffset);
 
 	UIElement* AddImage(iPoint position, iPoint positionOffset, SDL_Rect* section);
-	Interactive* AddInteractive(iPoint position, iPoint positionOffset, SDL_Rect* size, j1Module* callback);
+	InheritedInteractive* AddInteractive(iPoint position, iPoint positionOffset, SDL_Rect& size, j1Module* callback);
 	UIElement* AddLabel(iPoint position, iPoint positionOffset);
 	InteractiveImage* AddInteractiveImage(iPoint position, iPoint positionOffsetA, iPoint positionOffsetB, SDL_Rect interactiveSection, SDL_Rect image_section, j1Module* callback);
 	UIElement* AddInteractiveLabel(iPoint position, iPoint positionOffset);
