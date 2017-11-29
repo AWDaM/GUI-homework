@@ -77,6 +77,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Image.cpp" />
+    <ClCompile Include="InheritedImage.cpp" />
+    <ClCompile Include="InheritedInteractive.cpp" />
+    <ClCompile Include="InheritedLabel.cpp" />
     <ClCompile Include="Interactive.cpp" />
     <ClCompile Include="InteractiveImage.cpp" />
     <ClCompile Include="InteractiveLabel.cpp" />
@@ -103,6 +106,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Image.h" />
+    <ClInclude Include="InheritedImage.h" />
+    <ClInclude Include="InheritedInteractive.h" />
+    <ClInclude Include="InheritedLabel.h" />
     <ClInclude Include="Interactive.h" />
     <ClInclude Include="InteractiveImage.h" />
     <ClInclude Include="InteractiveLabel.h" />
