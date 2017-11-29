@@ -21,7 +21,7 @@ public:
 	 bool ImagePreUpdate();
 	 bool ImageUpdate(float dt) { return true; }
 	 bool ImagePostUpdate();
-	 bool ImageDraw();
+	 bool ImageDraw(SDL_Rect &current);
 
 
 public:

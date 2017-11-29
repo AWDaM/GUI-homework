@@ -15,6 +15,13 @@ public:
 	bool Update(float dt);
 	bool PostUpdate();
 	bool Draw();
+	bool HandleAnimation(int eventType);
+
+public:
+
+	SDL_Rect* current;
+	SDL_Rect hover;
+	SDL_Rect click;
 };
 
 #endif

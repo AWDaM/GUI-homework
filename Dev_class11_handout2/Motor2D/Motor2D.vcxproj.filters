@@ -49,9 +49,6 @@
     <ClCompile Include="j1Gui.cpp">
       <Filter>Desenvolupament  ========\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="InteractiveImage.cpp">
-      <Filter>Desenvolupament  ========\GUI</Filter>
-    </ClCompile>
     <ClCompile Include="UIElement.cpp">
       <Filter>Desenvolupament  ========\GUI\Parents</Filter>
     </ClCompile>
@@ -64,23 +61,26 @@
     <ClCompile Include="Image.cpp">
       <Filter>Desenvolupament  ========\GUI\Parents</Filter>
     </ClCompile>
-    <ClCompile Include="LabelledImage.cpp">
-      <Filter>Desenvolupament  ========\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="InteractiveLabelledImage.cpp">
-      <Filter>Desenvolupament  ========\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="InteractiveLabel.cpp">
-      <Filter>Desenvolupament  ========\GUI</Filter>
-    </ClCompile>
     <ClCompile Include="InheritedImage.cpp">
-      <Filter>Desenvolupament  ========\GUI</Filter>
+      <Filter>Desenvolupament  ========\GUI\SingleParent</Filter>
     </ClCompile>
     <ClCompile Include="InheritedInteractive.cpp">
-      <Filter>Desenvolupament  ========\GUI</Filter>
+      <Filter>Desenvolupament  ========\GUI\SingleParent</Filter>
     </ClCompile>
     <ClCompile Include="InheritedLabel.cpp">
-      <Filter>Desenvolupament  ========\GUI</Filter>
+      <Filter>Desenvolupament  ========\GUI\SingleParent</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractiveImage.cpp">
+      <Filter>Desenvolupament  ========\GUI\MultiParent</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractiveLabel.cpp">
+      <Filter>Desenvolupament  ========\GUI\MultiParent</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractiveLabelledImage.cpp">
+      <Filter>Desenvolupament  ========\GUI\MultiParent</Filter>
+    </ClCompile>
+    <ClCompile Include="LabelledImage.cpp">
+      <Filter>Desenvolupament  ========\GUI\MultiParent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -150,9 +150,6 @@
     <ClInclude Include="j1Gui.h">
       <Filter>Desenvolupament  ========\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="InteractiveImage.h">
-      <Filter>Desenvolupament  ========\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="UIElement.h">
       <Filter>Desenvolupament  ========\GUI\Parents</Filter>
     </ClInclude>
@@ -165,23 +162,26 @@
     <ClInclude Include="Image.h">
       <Filter>Desenvolupament  ========\GUI\Parents</Filter>
     </ClInclude>
-    <ClInclude Include="LabelledImage.h">
-      <Filter>Desenvolupament  ========\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="InteractiveLabelledImage.h">
-      <Filter>Desenvolupament  ========\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="InteractiveLabel.h">
-      <Filter>Desenvolupament  ========\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="InheritedImage.h">
-      <Filter>Desenvolupament  ========\GUI</Filter>
+      <Filter>Desenvolupament  ========\GUI\SingleParent</Filter>
     </ClInclude>
     <ClInclude Include="InheritedInteractive.h">
-      <Filter>Desenvolupament  ========\GUI</Filter>
+      <Filter>Desenvolupament  ========\GUI\SingleParent</Filter>
     </ClInclude>
     <ClInclude Include="InheritedLabel.h">
-      <Filter>Desenvolupament  ========\GUI</Filter>
+      <Filter>Desenvolupament  ========\GUI\SingleParent</Filter>
+    </ClInclude>
+    <ClInclude Include="LabelledImage.h">
+      <Filter>Desenvolupament  ========\GUI\MultiParent</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractiveImage.h">
+      <Filter>Desenvolupament  ========\GUI\MultiParent</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractiveLabel.h">
+      <Filter>Desenvolupament  ========\GUI\MultiParent</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractiveLabelledImage.h">
+      <Filter>Desenvolupament  ========\GUI\MultiParent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +208,12 @@
     </Filter>
     <Filter Include="Desenvolupament  ========\GUI\Parents">
       <UniqueIdentifier>{36d880b4-8f51-4ac7-b49f-bc750c8a4edd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Desenvolupament  ========\GUI\SingleParent">
+      <UniqueIdentifier>{16466816-e436-441b-9544-cf4fdf4f6df2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Desenvolupament  ========\GUI\MultiParent">
+      <UniqueIdentifier>{858c5bde-f7a3-40ac-8e6c-69ae07290fa2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

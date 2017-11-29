@@ -11,7 +11,7 @@
   </renderer>
 
   <window>
-    <resolution width="1920" height="1080" scale="1"/>
+    <resolution width="500" height="500" scale="1"/>
     <fullscreen value="false"/>
     <borderless value="false"/>
     <resizable value="false"/>
@@ -19,7 +19,7 @@
   </window>
 
   <gui>
-    <atlas file="gui/atlas.png"/>
+    <atlas file="gui/WOWatlas.png"/>
     <background file="gui/login_background.png"/>
   </gui>
 

@@ -1,8 +1,10 @@
 #include "Interactive.h"
-#include "j1Input.h"
 #include "p2Log.h"
 #include "j1Fonts.h"
+#include "j1Map.h"
 #include "j1Render.h"
+#include "j1Input.h"
+
 
 Interactive::Interactive()
 {
@@ -14,9 +16,9 @@ Interactive::Interactive(iPoint pos) : UIElement()
 	buttonMargin.y = pos.y;
 }
 
-Interactive::Interactive(iPoint pos, iPoint posOffset, SDL_Rect size, j1Module* callback) : buttonMargin(size), callback(callback),
-	UIElement(pos, posOffset, UIType::INTERACTIVE)
-{}
+Interactive::Interactive(iPoint pos, iPoint posOffset, SDL_Rect size, j1Module* callback) : buttonMargin(size), callback(callback),UIElement(pos, posOffset)
+{
+}
 
 
 Interactive::~Interactive()
@@ -28,6 +30,8 @@ bool Interactive::InteractivePreUpdate()
 	bool ret = true;
 
 	SDL_Point mousePosition;
+	
+	position;
 	App->input->GetMousePosition(mousePosition.x, mousePosition.y);
 
 	if (SDL_PointInRect(&mousePosition, &buttonMargin))

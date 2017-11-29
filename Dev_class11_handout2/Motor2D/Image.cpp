@@ -49,9 +49,11 @@ bool Image::ImagePostUpdate()
 	return true;
 }
 
-bool Image::ImageDraw()
+bool Image::ImageDraw(SDL_Rect &current)
 {
-	App->render->Blit(image, position.x + positionOffset.x, position.y + positionOffset.y, &image_section);
+	
+	App->render->Blit(image, position.x + positionOffset.x, position.y + positionOffset.y, &current);
+	
 	return true;
 }
 
