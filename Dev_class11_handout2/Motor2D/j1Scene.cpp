@@ -41,7 +41,9 @@ bool j1Scene::Start()
 	temp.h = 1000;
 
 
-	//InheritedInteractive* test = App->gui->AddInteractive({ -64,-64 }, { 0,0 }, temp , this);
+
+	App->gui->AddInteractive({ -64,-64 }, { 0,0 }, temp , this);
+
 
 	if(App->map->Load("iso_walk.tmx") == true)
 	{
@@ -169,8 +171,7 @@ bool j1Scene::CleanUp()
 
 bool j1Scene::OnEvent(UIElement* element, int eventType)
 {
-	if(eventType == EventTypes::MOUSE_HOVER_IN)
-		LOG("deez nuts");
+	LOG("%i", eventType);
 
 	return true;
 }

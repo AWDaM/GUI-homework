@@ -34,7 +34,7 @@ enum UIType
 };
 // TODO 1: Create your structure of classes
 class UIElement;
-class Interactive;
+class InheritedInteractive;
 class InteractiveImage;
 class InheritedInteractive;
 struct SDL_Rect;
@@ -68,7 +68,6 @@ public:
 
 	// TODO 2: Create the factory methods
 	UIElement* AddElement(UIType type, iPoint position, iPoint positionOffset);
-
 	UIElement* AddImage(iPoint position, iPoint positionOffset, SDL_Rect* section);
 	InheritedInteractive* AddInteractive(iPoint position, iPoint positionOffset, SDL_Rect& size, j1Module* callback);
 	UIElement* AddLabel(iPoint position, iPoint positionOffset);
