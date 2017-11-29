@@ -37,6 +37,6 @@ bool InheritedImage::PostUpdate()
 
 bool InheritedImage::Draw()
 {
-	ImageDraw();
+	ImageDraw(image_section);
 	return false;
 }

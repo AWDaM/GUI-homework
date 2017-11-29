@@ -1,12 +1,13 @@
 #include "UIElement.h"
+#include "p2Log.h"
 
 UIElement::UIElement()
 {
 }
 
-UIElement::UIElement(iPoint position, iPoint positionOffset, UIType type) :
-	position(position), positionOffset(positionOffset), type(type)
+UIElement::UIElement(iPoint position, iPoint positionOffset) : position(position), positionOffset(positionOffset)
 {
+	LOG("%i, %i", this->position.x, this->position.y);
 }
 
 

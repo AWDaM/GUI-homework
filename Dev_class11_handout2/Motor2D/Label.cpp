@@ -16,7 +16,7 @@ Label::Label()
 {
 }
 
-Label::Label(iPoint position, iPoint positionOffset, p2SString label) : UIElement(position,positionOffset,LABEL)
+Label::Label(iPoint position, iPoint positionOffset, p2SString label) : UIElement(position,positionOffset)
 {
 	this->label = label;
 }

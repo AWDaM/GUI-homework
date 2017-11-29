@@ -30,7 +30,7 @@ bool j1Gui::Awake(pugi::xml_node& conf)
 	LOG("Loading GUI atlas");
 	bool ret = true;
 
-	atlas_file_name = conf.child("WOWatlas").attribute("file").as_string("");
+	atlas_file_name = conf.child("atlas").attribute("file").as_string("");
 	background = conf.child("background").attribute("file").as_string("");
 
 
@@ -90,12 +90,12 @@ bool j1Gui::Draw()
 // Called before quitting
 bool j1Gui::CleanUp()
 {
-	LOG("Freeing GUI");
+	/*LOG("Freeing GUI");
 	for (p2List_item<UIElement*>* item = elements.start; item; item = item->next)
 	{
 		RELEASE(item->data);
 	}
-	elements.clear();
+	elements.clear();*/
 	return true;
 }
 
@@ -151,9 +151,11 @@ InheritedInteractive* j1Gui::AddInteractive(iPoint position, iPoint positionOffs
 
 
 
-InteractiveImage * j1Gui::AddInteractiveImage(iPoint position, iPoint positionOffsetA, iPoint positionOffsetB, SDL_Rect interactiveSection, SDL_Rect image_section, j1Module * callback)
+InteractiveImage * j1Gui::AddInteractiveImage(iPoint position, iPoint positionOffsetA, iPoint positionOffsetB, SDL_Rect interactiveSize, SDL_Rect image_section, j1Module * callback)
 {
-	return nullptr;
+	InteractiveImage* ret = new InteractiveImage(position, positionOffsetA, positionOffsetB, interactiveSize, image_section, callback);
+	elements.add(ret);
+	return ret;
 }
 
 
@@ -188,6 +190,18 @@ UIElement* j1Gui::AddImage_From_otherFile(iPoint position, iPoint positionOffset
 bool j1Gui::CreateSceneIntroGUI()
 {
 	AddImage_From_otherFile({ 0,0 }, { 0,0 }, background);
+	//{0, 0, 122, 74};
+	//{132, 19, 311, 131};
+	AddInteractiveImage({ 960-61,800 }, { 0,0 }, { 0,0 }, { 960 - 61,800, 122, 74 }, { 0, 0, 122, 74 }, this);
+	AddInteractiveImage({ 0,0 }, { 0,0 }, { 0,0 }, { 0, 0, 311, 131 }, { 132, 19, 311, 131 }, this);
+	InteractiveImage* tmp = AddInteractiveImage({ 0,0 }, { 0,0 }, { 0,0 }, { 0, 0, 130, 32 }, { 0, 74, 130, 32 }, (j1Module*)App->scene);
+	tmp->click = { 0,105,130,32 };
+	tmp->hover = { 0,150,145,43 };
+	/*{0, 74, 130, 32}
+	{0,105,130,32}
+	{0,150,145,43}*/
+
+	
 	return true;
 }
 

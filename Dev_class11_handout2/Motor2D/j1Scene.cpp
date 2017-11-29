@@ -171,7 +171,10 @@ bool j1Scene::CleanUp()
 
 bool j1Scene::OnEvent(UIElement* element, int eventType)
 {
-	LOG("%i", eventType);
-
+	LOG("%i", element->type);
+	if (element->type == INTERACTIVE_IMAGE)
+	{
+		element->HandleAnimation(eventType);
+	}
 	return true;
 }

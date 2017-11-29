@@ -12,10 +12,11 @@ public:
 	virtual bool Update(float dt) { return true; }
 	virtual bool PostUpdate() { return true; }
 	virtual bool Draw() { return true; }
+	virtual bool HandleAnimation(int eventType) { return true; }
 
 
 	UIElement();
-	UIElement(iPoint position, iPoint positionOffset, UIType type = NO_TYPE);
+	UIElement(iPoint position, iPoint positionOffset);
 	~UIElement();
 
 public:
