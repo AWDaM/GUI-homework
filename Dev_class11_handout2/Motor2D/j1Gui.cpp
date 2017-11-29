@@ -141,9 +141,9 @@ UIElement * j1Gui::AddImage(iPoint position, iPoint positionOffset, SDL_Rect * s
 	return ret;
 }
 
-Interactive* j1Gui::AddInteractive(iPoint position, iPoint positionOffset, SDL_Rect * size, j1Module* callback)
+InheritedInteractive* j1Gui::AddInteractive(iPoint position, iPoint positionOffset, SDL_Rect * size, j1Module* callback)
 {
-	Interactive* ret = new Interactive(position, positionOffset, *size, callback);
+	InheritedInteractive* ret = new InheritedInteractive(position, positionOffset, *size, callback);
 	elements.add(ret);
 
 	return ret;
