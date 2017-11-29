@@ -45,3 +45,8 @@ bool Interactive::CheckEvents()
 	return ret;
 }
 
+bool Interactive::PreUpdate()
+{
+	return true;
+}
+

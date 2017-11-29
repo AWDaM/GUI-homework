@@ -18,11 +18,11 @@ public:
 
 	~Image();
 	
-public:
 	 bool ImagePreUpdate();
 	 bool ImageUpdate(float dt) { return true; }
 	 bool ImagePostUpdate();
 	 bool ImageDraw();
+
 
 public:
 	SDL_Rect image_section;

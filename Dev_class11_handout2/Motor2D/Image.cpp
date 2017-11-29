@@ -55,3 +55,4 @@ bool Image::ImageDraw()
 	App->render->Blit(image, position.x + positionOffset.x, position.y + positionOffset.y, &image_section);
 	return true;
 }
+
