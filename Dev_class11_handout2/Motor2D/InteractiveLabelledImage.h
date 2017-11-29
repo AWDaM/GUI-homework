@@ -10,6 +10,7 @@ class InteractiveLabelledImage : public Interactive, public Label, public Image
 public:
 	InteractiveLabelledImage(iPoint pos);
 	~InteractiveLabelledImage();
+
 };
 
 #endif

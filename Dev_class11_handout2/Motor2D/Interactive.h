@@ -17,17 +17,14 @@ public:
 
 	 bool InteractiveDraw();
 
-	bool CheckEvents();
-
-
-private:
-	//void OnClick();
-	//void OnMouseOver();
 
 public:
 	SDL_Rect	buttonMargin;
 	bool		isMouseInside = false;
 	j1Module* callback = nullptr;
+	SDL_Texture* fontTexture;
+	p2SString text = "Default Text";
+
 };
 
 #endif

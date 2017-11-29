@@ -1,4 +1,6 @@
 #include "Label.h"
+#include "j1Fonts.h"
+#include "j1Render.h"
 
 
 
@@ -9,6 +11,7 @@ bool Label::LabelUpdate(float dt)
 
 bool Label::LabelDraw()
 {
+
 	return true;
 }
 

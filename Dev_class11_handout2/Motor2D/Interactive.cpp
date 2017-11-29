@@ -1,7 +1,8 @@
 #include "Interactive.h"
 #include "j1Input.h"
 #include "p2Log.h"
-
+#include "j1Fonts.h"
+#include "j1Render.h"
 
 Interactive::Interactive()
 {
@@ -58,6 +59,10 @@ bool Interactive::InteractivePreUpdate()
 
 bool Interactive::InteractiveDraw()
 {
+	fontTexture = App->font->Print(text.GetString() , { 255,0,0,0 }, App->font->default);
+
+
+	App->render->Blit(fontTexture, 300, 290);
 	return true;
 }
 
