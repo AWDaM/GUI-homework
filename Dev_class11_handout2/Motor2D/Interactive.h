@@ -7,6 +7,7 @@
 class Interactive : virtual public UIElement
 {
 public:
+	Interactive();
 	Interactive(iPoint pos);
 	Interactive(iPoint pos, iPoint posOffset, SDL_Rect size, j1Module* callback);
 	~Interactive();

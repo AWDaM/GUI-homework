@@ -7,7 +7,7 @@ public:
 	InheritedImage();
 	InheritedImage(iPoint position, iPoint positionOffset);
 	InheritedImage(iPoint position, iPoint positionOffset, SDL_Rect &image_section);
-	InheritedImage(iPoint position, iPoint positionOffset, SDL_Rect &image_section, p2SString &path);
+	InheritedImage(iPoint position, iPoint positionOffset, p2SString &path);
 
 	~InheritedImage();
 

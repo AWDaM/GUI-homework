@@ -24,13 +24,12 @@ Image::Image(iPoint position, iPoint positionOffset, SDL_Rect  image_section) : 
 	this->image_section = image_section;
 }
 
-Image::Image(p2SString* path, iPoint position, iPoint positionOffset, SDL_Rect* image) : UIElement(position,positionOffset)
+Image::Image(p2SString& path, iPoint position, iPoint positionOffset) : UIElement(position,positionOffset)
 {
-	this->image = App->tex->Load(path->GetString());
-	if (image)
-		image_section = *image;
-	else
-		SDL_QueryTexture(this->image, nullptr, nullptr, &image_section.w, &image_section.h);
+	this->image = App->tex->Load(path.GetString());
+
+	//else
+	//	SDL_QueryTexture(this->image, nullptr, nullptr, &image_section.w, &image_section.h);
 	
 	//return null need to check TODO
 }

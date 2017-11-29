@@ -3,6 +3,10 @@
 #include "p2Log.h"
 
 
+Interactive::Interactive()
+{
+}
+
 Interactive::Interactive(iPoint pos) : UIElement()
 {
 	buttonMargin.x = pos.x;
@@ -45,8 +49,5 @@ bool Interactive::CheckEvents()
 	return ret;
 }
 
-bool Interactive::PreUpdate()
-{
-	return true;
-}
+
 

@@ -78,7 +78,7 @@ public:
 
 	UIElement* DeleteElement(UIElement* element);
 
-	UIElement* AddImage_From_otherFile(iPoint position, iPoint positionOffset, p2SString* path, SDL_Rect* section = nullptr);
+	UIElement* AddImage_From_otherFile(iPoint position, iPoint positionOffset, p2SString& path);
 	// Gui creation functions
 
 	bool CreateSceneIntroGUI();

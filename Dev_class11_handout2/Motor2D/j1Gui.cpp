@@ -11,6 +11,9 @@
 #include "Image.h"
 #include "Interactive.h"
 #include "InteractiveImage.h"
+#include "InheritedImage.h"
+#include "InheritedInteractive.h"
+#include "InheritedLabel.h"
 
 j1Gui::j1Gui() : j1Module()
 {
@@ -178,10 +181,10 @@ UIElement * j1Gui::DeleteElement(UIElement * element)
 	return item->data;
 }
 
-UIElement* j1Gui::AddImage_From_otherFile(iPoint position, iPoint positionOffset, p2SString * path, SDL_Rect* section)
+UIElement* j1Gui::AddImage_From_otherFile(iPoint position, iPoint positionOffset, p2SString &path)
 {
 
-	UIElement* element = new Image(path,position, positionOffset, section);
+	UIElement* element = new InheritedImage(position, positionOffset, path);
 
 	elements.add(element);
 	return element;
@@ -189,7 +192,7 @@ UIElement* j1Gui::AddImage_From_otherFile(iPoint position, iPoint positionOffset
 
 bool j1Gui::CreateSceneIntroGUI()
 {
-	AddImage_From_otherFile({ 0,0 }, { 0,0 }, &background);
+	AddImage_From_otherFile({ 0,0 }, { 0,0 }, background);
 	return true;
 }
 

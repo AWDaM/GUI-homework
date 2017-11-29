@@ -14,7 +14,7 @@ InheritedImage::InheritedImage(iPoint position, iPoint positionOffset, SDL_Rect 
 {
 }
 
-InheritedImage::InheritedImage(iPoint position, iPoint positionOffset, SDL_Rect & image_section, p2SString & path) : Image(path, position, positionOffset, image_section)
+InheritedImage::InheritedImage(iPoint position, iPoint positionOffset, p2SString & path) : Image(path, position, positionOffset)
 {
 }
 

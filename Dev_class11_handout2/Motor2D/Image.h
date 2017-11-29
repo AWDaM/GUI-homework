@@ -14,7 +14,7 @@ public:
 	Image();
 	Image(iPoint position, iPoint positionOffset);
 	Image(iPoint position, iPoint positionOffset, SDL_Rect image_section);
-	Image(p2SString* path, iPoint position, iPoint positionOffset, SDL_Rect* image = nullptr);
+	Image(p2SString& path, iPoint position, iPoint positionOffset);
 
 	~Image();
 	
