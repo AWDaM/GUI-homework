@@ -10,7 +10,7 @@ InheritedImage::InheritedImage(iPoint position, iPoint positionOffset) : Image(p
 {
 }
 
-InheritedImage::InheritedImage(iPoint position, iPoint positionOffset, SDL_Rect & image_section) : Image(position, positionOffset, image_section)
+InheritedImage::InheritedImage(iPoint position, iPoint positionOffset, SDL_Rect & image_section) : Image(position, positionOffset, image_section), UIElement(position)
 {
 }
 

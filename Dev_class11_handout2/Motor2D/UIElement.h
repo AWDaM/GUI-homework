@@ -16,13 +16,12 @@ public:
 
 
 	UIElement();
-	UIElement(iPoint position, iPoint positionOffset);
+	UIElement(iPoint position);
 	~UIElement();
 
 public:
 	UIType type = NO_TYPE;
 	iPoint position;
-	iPoint positionOffset;
 };
 
 #endif

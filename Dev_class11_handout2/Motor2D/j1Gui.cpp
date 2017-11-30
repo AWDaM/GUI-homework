@@ -151,9 +151,9 @@ InheritedInteractive* j1Gui::AddInteractive(iPoint position, iPoint positionOffs
 
 
 
-InteractiveImage * j1Gui::AddInteractiveImage(iPoint position, iPoint positionOffsetA, iPoint positionOffsetB, SDL_Rect interactiveSize, SDL_Rect image_section, j1Module * callback)
+InteractiveImage * j1Gui::AddInteractiveImage(iPoint position, iPoint Interactiverelativepos, iPoint Imagerelativepos, SDL_Rect interactiveSize, SDL_Rect image_section, j1Module * callback)
 {
-	InteractiveImage* ret = new InteractiveImage(position, positionOffsetA, positionOffsetB, interactiveSize, image_section, callback);
+	InteractiveImage* ret = new InteractiveImage(position, Interactiverelativepos, Imagerelativepos, interactiveSize, image_section, callback);
 	elements.add(ret);
 	return ret;
 }
@@ -194,7 +194,7 @@ bool j1Gui::CreateSceneIntroGUI()
 	//{132, 19, 311, 131};
 	AddInteractiveImage({ 960-61,800 }, { 0,0 }, { 0,0 }, { 960 - 61,800, 122, 74 }, { 0, 0, 122, 74 }, this);
 	AddInteractiveImage({ 0,0 }, { 0,0 }, { 0,0 }, { 0, 0, 311, 131 }, { 132, 19, 311, 131 }, this);
-	InteractiveImage* tmp = AddInteractiveImage({ 0,0 }, { 0,0 }, { 0,0 }, { 0, 0, 130, 32 }, { 0, 74, 130, 32 }, (j1Module*)App->scene);
+	InteractiveImage* tmp = AddInteractiveImage({ 0,0 }, { 100,100 }, { 0,0 }, { 0, 0, 130, 32 }, { 0, 74, 130, 32 }, (j1Module*)App->scene);
 	tmp->click = { 0,105,130,32 };
 	tmp->hover = { 0,150,145,43 };
 	/*{0, 74, 130, 32}

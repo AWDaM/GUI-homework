@@ -5,7 +5,7 @@ UIElement::UIElement()
 {
 }
 
-UIElement::UIElement(iPoint position, iPoint positionOffset) : position(position), positionOffset(positionOffset)
+UIElement::UIElement(iPoint position) : position(position)
 {
 	LOG("%i, %i", this->position.x, this->position.y);
 }

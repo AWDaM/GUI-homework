@@ -19,6 +19,7 @@ public:
 
 
 public:
+	iPoint Interactiverelativepos;
 	SDL_Rect	buttonMargin;
 	bool		isMouseInside = false;
 	j1Module* callback = nullptr;

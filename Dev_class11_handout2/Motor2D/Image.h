@@ -12,9 +12,9 @@ class Image : virtual public UIElement
 {
 public:
 	Image();
-	Image(iPoint position, iPoint positionOffset);
-	Image(iPoint position, iPoint positionOffset, SDL_Rect image_section);
-	Image(p2SString& path, iPoint position, iPoint positionOffset);
+	Image(iPoint position, iPoint Imagerelativepos);
+	Image(iPoint position, iPoint Imagerelativepos, SDL_Rect image_section);
+	Image(p2SString& path, iPoint position, iPoint Imagerelativepos);
 
 	~Image();
 	
@@ -25,6 +25,7 @@ public:
 
 
 public:
+	iPoint Imagerelativepos;
 	SDL_Rect image_section;
 	SDL_Texture* image = nullptr;
 };

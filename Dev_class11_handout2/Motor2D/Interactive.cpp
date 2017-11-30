@@ -10,14 +10,18 @@ Interactive::Interactive()
 {
 }
 
-Interactive::Interactive(iPoint pos) : UIElement()
+Interactive::Interactive(iPoint pos)
 {
 	buttonMargin.x = pos.x;
 	buttonMargin.y = pos.y;
 }
 
-Interactive::Interactive(iPoint pos, iPoint posOffset, SDL_Rect size, j1Module* callback) : buttonMargin(size), callback(callback),UIElement(pos, posOffset)
+Interactive::Interactive(iPoint pos, iPoint Interactiverelativepos, SDL_Rect size, j1Module* callback) :  callback(callback)
 {
+	buttonMargin.x = pos.x + Interactiverelativepos.x;
+	buttonMargin.y = pos.y + Interactiverelativepos.y;
+	buttonMargin.w = size.w;
+	buttonMargin.h = size.h;
 }
 
 
