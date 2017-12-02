@@ -1,7 +1,7 @@
 #include "Image.h"
 #include "j1App.h"
 #include "j1Textures.h"
-
+#include "Window.h"
 #include "j1Render.h"
 
 
@@ -51,8 +51,14 @@ bool Image::ImagePostUpdate()
 
 bool Image::ImageDraw(SDL_Rect &current)
 {
-	
-	App->render->Blit(image, position.x + Imagerelativepos.x, position.y + Imagerelativepos.y, &current);
+	if (!In_window)
+	{
+		App->render->Blit(image, position.x + Imagerelativepos.x, position.y + Imagerelativepos.y, &current);
+	}
+	if (In_window)
+	{
+		App->render->Blit(image, position.x + Imagerelativepos.x + winElement->relativePosition.x, position.y + Imagerelativepos.y + winElement->relativePosition.y, &current);
+	}
 	
 	return true;
 }

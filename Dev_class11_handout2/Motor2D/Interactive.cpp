@@ -4,6 +4,7 @@
 #include "j1Map.h"
 #include "j1Render.h"
 #include "j1Input.h"
+#include "Window.h"
 
 
 Interactive::Interactive()
@@ -12,16 +13,16 @@ Interactive::Interactive()
 
 Interactive::Interactive(iPoint pos)
 {
-	buttonMargin.x = pos.x;
-	buttonMargin.y = pos.y;
+	collider.x = pos.x;
+	collider.y = pos.y;
 }
 
 Interactive::Interactive(iPoint pos, iPoint Interactiverelativepos, SDL_Rect size, j1Module* callback) :  callback(callback)
 {
-	buttonMargin.x = pos.x + Interactiverelativepos.x;
-	buttonMargin.y = pos.y + Interactiverelativepos.y;
-	buttonMargin.w = size.w;
-	buttonMargin.h = size.h;
+	collider.x = pos.x + Interactiverelativepos.x;
+	collider.y = pos.y + Interactiverelativepos.y;
+	collider.w = size.w;
+	collider.h = size.h;
 }
 
 
@@ -33,12 +34,13 @@ bool Interactive::InteractivePreUpdate()
 {
 	bool ret = true;
 
+	MoveCollider();
 	SDL_Point mousePosition;
 	
 	position;
 	App->input->GetMousePosition(mousePosition.x, mousePosition.y);
 
-	if (SDL_PointInRect(&mousePosition, &buttonMargin))
+	if (SDL_PointInRect(&mousePosition, &collider))
 	{
 		if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
 			callback->OnEvent(this, EventTypes::LEFT_MOUSE_PRESSED);
@@ -72,6 +74,21 @@ bool Interactive::InteractiveDraw()
 
 	App->render->Blit(fontTexture, 300, 290);
 	return true;
+}
+
+void Interactive::MoveCollider()
+{
+	if (!In_window)
+	{
+		collider.x = position.x + Interactiverelativepos.x;
+		collider.y = position.y + Interactiverelativepos.y;
+	}
+
+	else if (In_window)
+	{
+		collider.x = position.x + Interactiverelativepos.x + winElement->relativePosition.x;
+		collider.y = position.y + Interactiverelativepos.y + winElement->relativePosition.y;
+	}
 }
 
 

@@ -82,6 +82,9 @@
     <ClCompile Include="LabelledImage.cpp">
       <Filter>Desenvolupament  ========\GUI\MultiParent</Filter>
     </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Desenvolupament  ========\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="j1Window.h">
@@ -182,6 +185,9 @@
     </ClInclude>
     <ClInclude Include="InteractiveLabelledImage.h">
       <Filter>Desenvolupament  ========\GUI\MultiParent</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Desenvolupament  ========\GUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

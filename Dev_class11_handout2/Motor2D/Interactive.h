@@ -17,10 +17,12 @@ public:
 
 	 bool InteractiveDraw();
 
+	 void MoveCollider();
+
 
 public:
 	iPoint Interactiverelativepos;
-	SDL_Rect	buttonMargin;
+	SDL_Rect 	collider;
 	bool		isMouseInside = false;
 	j1Module* callback = nullptr;
 	SDL_Texture* fontTexture;

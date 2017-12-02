@@ -22,6 +22,8 @@ public:
 public:
 	UIType type = NO_TYPE;
 	iPoint position;
+	bool In_window = false;
+	WinElement* winElement = nullptr;
 };
 
 #endif

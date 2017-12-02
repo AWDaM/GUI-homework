@@ -6,6 +6,7 @@
 #include "j1Fonts.h"
 #include "j1Input.h"
 #include "j1Gui.h"
+#include "Window.h"
 #include "UIElement.h"
 #include "Label.h"
 #include "Image.h"
@@ -52,6 +53,13 @@ bool j1Gui::PreUpdate()
 {
 	bool ret = true;
 	for (p2List_item<UIElement*>* item = elements.start; item; item = item->next)
+	{
+		item->data->PreUpdate();
+		if (!ret)
+			break;
+	}
+
+	for (p2List_item<Window*>* item = window_list.start; item; item = item->next)
 	{
 		item->data->PreUpdate();
 		if (!ret)
@@ -180,11 +188,20 @@ UIElement * j1Gui::DeleteElement(UIElement * element)
 
 UIElement* j1Gui::AddImage_From_otherFile(iPoint position, iPoint positionOffset, p2SString &path)
 {
-
 	UIElement* element = new InheritedImage(position, positionOffset, path);
 
 	elements.add(element);
+
 	return element;
+}
+
+Window * j1Gui::AddWindow(SDL_Rect &windowrect)
+{
+	Window* window = new Window(windowrect);
+
+	window_list.add(window);
+
+	return window;
 }
 
 bool j1Gui::CreateSceneIntroGUI()
@@ -194,9 +211,13 @@ bool j1Gui::CreateSceneIntroGUI()
 	//{132, 19, 311, 131};
 	AddInteractiveImage({ 960-61,800 }, { 0,0 }, { 0,0 }, { 960 - 61,800, 122, 74 }, { 0, 0, 122, 74 }, this);
 	AddInteractiveImage({ 0,0 }, { 0,0 }, { 0,0 }, { 0, 0, 311, 131 }, { 132, 19, 311, 131 }, this);
-	InteractiveImage* tmp = AddInteractiveImage({ 0,0 }, { 100,100 }, { 0,0 }, { 0, 0, 130, 32 }, { 0, 74, 130, 32 }, (j1Module*)App->scene);
+	InteractiveImage* tmp = AddInteractiveImage({ 0,0 }, { 0,0 }, { 0,0 }, { 0, 0, 130, 32 }, { 0, 74, 130, 32 }, (j1Module*)App->scene);
 	tmp->click = { 0,105,130,32 };
 	tmp->hover = { 0,150,145,43 };
+
+	SDL_Rect window_rect = { 0,0,500,500 };
+	Window* window = AddWindow(window_rect);
+	window->AddElementToWindow(tmp, { 50,50 });
 	/*{0, 74, 130, 32}
 	{0,105,130,32}
 	{0,150,145,43}*/

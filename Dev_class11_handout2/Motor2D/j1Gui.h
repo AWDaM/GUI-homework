@@ -34,6 +34,8 @@ enum UIType
 };
 // TODO 1: Create your structure of classes
 class UIElement;
+class Window;
+struct WinElement;
 class InheritedInteractive;
 class InteractiveImage;
 class InheritedInteractive;
@@ -79,12 +81,15 @@ public:
 	UIElement* DeleteElement(UIElement* element);
 
 	UIElement* AddImage_From_otherFile(iPoint position, iPoint positionOffset, p2SString& path);
+
+	Window* AddWindow(SDL_Rect &window);
 	// Gui creation functions
 
 	bool CreateSceneIntroGUI();
 
 	SDL_Texture* GetAtlas() const;
 	p2List<UIElement*> elements;
+	p2List<Window*> window_list;
 
 private:
 
