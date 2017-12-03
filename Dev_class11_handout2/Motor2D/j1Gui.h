@@ -37,8 +37,8 @@ class UIElement;
 class Window;
 struct WinElement;
 class InheritedInteractive;
+class InheritedLabel;
 class InteractiveImage;
-class InheritedInteractive;
 struct SDL_Rect;
 struct SDL_Texture;
 // ---------------------------------------------------
@@ -72,7 +72,7 @@ public:
 	UIElement* AddElement(UIType type, iPoint position, iPoint positionOffset);
 	UIElement* AddImage(iPoint position, iPoint positionOffset, SDL_Rect* section);
 	InheritedInteractive* AddInteractive(iPoint position, iPoint positionOffset, SDL_Rect& size, j1Module* callback);
-	UIElement* AddLabel(iPoint position, iPoint positionOffset);
+	InheritedLabel* AddLabel(iPoint position, iPoint positionOffset, p2SString fontPath, SDL_Color textColor, p2SString label, int size = 12);
 	InteractiveImage* AddInteractiveImage(iPoint position, iPoint positionOffsetA, iPoint positionOffsetB, SDL_Rect interactiveSection, SDL_Rect image_section, j1Module* callback);
 	UIElement* AddInteractiveLabel(iPoint position, iPoint positionOffset);
 	UIElement* AddInteractiveLabelledImage(iPoint position, iPoint positionOffset);

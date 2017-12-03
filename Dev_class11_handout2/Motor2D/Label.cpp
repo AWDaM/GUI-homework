@@ -11,6 +11,7 @@ bool Label::LabelUpdate(float dt)
 
 bool Label::LabelDraw()
 {
+	App->render->Blit(fontTexture, position.x, position.y);
 
 	return true;
 }
@@ -19,9 +20,11 @@ Label::Label()
 {
 }
 
-Label::Label(iPoint position, iPoint Labelrelativepos, p2SString label) : Labelrelativepos(Labelrelativepos)
+Label::Label(iPoint position, iPoint Labelrelativepos, p2SString fontPath, SDL_Color textColor, p2SString label, int size) : Labelrelativepos(Labelrelativepos)
 {
-	this->label = label;
+	font = App->font->Load(fontPath.GetString(), size);
+	fontTexture = App->font->Print(label.GetString(), textColor, font);
+
 }
 
 

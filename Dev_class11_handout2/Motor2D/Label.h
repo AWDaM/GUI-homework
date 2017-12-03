@@ -11,7 +11,7 @@ public:
 	bool LabelDraw();
 
 	Label();
-	Label(iPoint position, iPoint positionOffset, p2SString label);
+	Label(iPoint position, iPoint positionOffset, p2SString fontPath, SDL_Color textColor, p2SString label, int size = 12);
 	~Label();
 
 public:

@@ -69,10 +69,6 @@ bool Interactive::InteractivePreUpdate()
 
 bool Interactive::InteractiveDraw()
 {
-	fontTexture = App->font->Print(text.GetString() , { 255,0,0,0 }, App->font->default);
-
-
-	App->render->Blit(fontTexture, 300, 290);
 	return true;
 }
 

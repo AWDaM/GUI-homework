@@ -158,6 +158,13 @@ InheritedInteractive* j1Gui::AddInteractive(iPoint position, iPoint positionOffs
 }
 
 
+InheritedLabel* j1Gui::AddLabel(iPoint position, iPoint positionOffset, p2SString fontPath, SDL_Color textColor, p2SString label, int size)
+{
+	InheritedLabel* ret = new InheritedLabel(position, positionOffset, fontPath, textColor, label, size);
+	elements.add(ret);
+
+	return ret;
+}
 
 InteractiveImage * j1Gui::AddInteractiveImage(iPoint position, iPoint Interactiverelativepos, iPoint Imagerelativepos, SDL_Rect interactiveSize, SDL_Rect image_section, j1Module * callback)
 {
