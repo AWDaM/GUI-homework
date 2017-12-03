@@ -73,7 +73,7 @@ public:
 	UIElement* AddElement(UIType type, SDL_Rect& position, iPoint positionOffset);
 	UIElement* AddImage(SDL_Rect& position, iPoint positionOffset, SDL_Rect* section);
 	InheritedInteractive* AddInteractive(SDL_Rect& position, iPoint positionOffset, SDL_Rect& size, j1Module* callback);
-	UIElement* AddLabel(SDL_Rect& position, iPoint positionOffset);
+	InheritedLabel* AddLabel(SDL_Rect& position, iPoint positionOffset, p2SString fontPath, SDL_Color textColor, p2SString label, int size = 12);
 	InteractiveImage* AddInteractiveImage(SDL_Rect& position, iPoint positionOffsetA, iPoint positionOffsetB, SDL_Rect interactiveSection, SDL_Rect image_section, j1Module* callback);
 	UIElement* AddInteractiveLabel(SDL_Rect& position, iPoint positionOffset);
 	UIElement* AddInteractiveLabelledImage(SDL_Rect& position, iPoint positionOffset);

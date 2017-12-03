@@ -172,7 +172,7 @@ InheritedInteractive* j1Gui::AddInteractive(SDL_Rect& position, iPoint positionO
 }
 
 
-InheritedLabel* j1Gui::AddLabel(iPoint position, iPoint positionOffset, p2SString fontPath, SDL_Color textColor, p2SString label, int size)
+InheritedLabel* j1Gui::AddLabel(SDL_Rect& position, iPoint positionOffset, p2SString fontPath, SDL_Color textColor, p2SString label, int size)
 {
 	InheritedLabel* ret = new InheritedLabel(position, positionOffset, fontPath, textColor, label, size);
 	elements.add(ret);
