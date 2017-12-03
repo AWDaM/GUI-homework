@@ -37,8 +37,8 @@ class UIElement;
 class Window;
 struct WinElement;
 class InheritedInteractive;
+class InheritedLabel;
 class InteractiveImage;
-class InheritedInteractive;
 struct SDL_Rect;
 struct SDL_Texture;
 // ---------------------------------------------------
@@ -69,6 +69,7 @@ public:
 	bool CleanUp();
 
 	// TODO 2: Create the factory methods
+
 	UIElement* AddElement(UIType type, SDL_Rect& position, iPoint positionOffset);
 	UIElement* AddImage(SDL_Rect& position, iPoint positionOffset, SDL_Rect* section);
 	InheritedInteractive* AddInteractive(SDL_Rect& position, iPoint positionOffset, SDL_Rect& size, j1Module* callback);
@@ -77,6 +78,7 @@ public:
 	UIElement* AddInteractiveLabel(SDL_Rect& position, iPoint positionOffset);
 	UIElement* AddInteractiveLabelledImage(SDL_Rect& position, iPoint positionOffset);
 	UIElement* AddLabelledImage(SDL_Rect& position, iPoint positionOffset);
+
 
 	UIElement* DeleteElement(UIElement* element);
 

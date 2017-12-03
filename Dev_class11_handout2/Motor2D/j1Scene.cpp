@@ -40,6 +40,8 @@ bool j1Scene::Start()
 	temp.w = 1000;
 	temp.h = 1000;
 
+	//App->gui->AddLabel({ 300, 300 }, { 0,0 }, "fonts/open_sans/OpenSans-Regular.ttf", { 255,0,0,0 }, "Default Text", 24);
+
 	if(App->map->Load("iso_walk.tmx") == true)
 	{
 		int w, h;
