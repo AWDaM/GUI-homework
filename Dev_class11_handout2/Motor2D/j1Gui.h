@@ -70,21 +70,21 @@ public:
 
 	// TODO 2: Create the factory methods
 
-	UIElement* AddElement(UIType type, SDL_Rect& position, iPoint positionOffset);
-	UIElement* AddImage(SDL_Rect& position, iPoint positionOffset, SDL_Rect* section);
-	InheritedInteractive* AddInteractive(SDL_Rect& position, iPoint positionOffset, SDL_Rect& size, j1Module* callback);
-	InheritedLabel* AddLabel(SDL_Rect& position, iPoint positionOffset, p2SString fontPath, SDL_Color textColor, p2SString label, int size = 12);
-	InteractiveImage* AddInteractiveImage(SDL_Rect& position, iPoint positionOffsetA, iPoint positionOffsetB, SDL_Rect interactiveSection, SDL_Rect image_section, j1Module* callback);
-	UIElement* AddInteractiveLabel(SDL_Rect& position, iPoint positionOffset);
-	UIElement* AddInteractiveLabelledImage(SDL_Rect& position, iPoint positionOffset);
-	UIElement* AddLabelledImage(SDL_Rect& position, iPoint positionOffset);
+	UIElement* AddElement(UIType type, SDL_Rect& position, iPoint positionOffset, bool draggable = false);
+	UIElement* AddImage(SDL_Rect& position, iPoint positionOffset, SDL_Rect* section, bool draggable = false);
+	InheritedInteractive* AddInteractive(SDL_Rect& position, iPoint positionOffset, SDL_Rect& size, j1Module* callback, bool draggable = false);
+	InheritedLabel* AddLabel(SDL_Rect& position, iPoint positionOffset, p2SString fontPath, SDL_Color textColor, p2SString label, int size = 12, bool draggable = false);
+	InteractiveImage* AddInteractiveImage(SDL_Rect& position, iPoint positionOffsetA, iPoint positionOffsetB, SDL_Rect interactiveSection, SDL_Rect image_section, j1Module* callback, bool draggable = false);
+	UIElement* AddInteractiveLabel(SDL_Rect& position, iPoint positionOffset, bool draggable = false);
+	UIElement* AddInteractiveLabelledImage(SDL_Rect& position, iPoint positionOffset, bool draggable = false);
+	UIElement* AddLabelledImage(SDL_Rect& position, iPoint positionOffset, bool draggable = false);
 
 
 	UIElement* DeleteElement(UIElement* element);
 
-	UIElement* AddImage_From_otherFile(SDL_Rect& position, iPoint positionOffset, p2SString& path);
+	UIElement* AddImage_From_otherFile(SDL_Rect& position, iPoint positionOffset, p2SString& path, bool draggable = false);
 
-	Window* AddWindow(SDL_Rect &window);
+	Window* AddWindow(SDL_Rect &window, bool draggable = false);
 	// Gui creation functions
 
 	bool CreateSceneIntroGUI();

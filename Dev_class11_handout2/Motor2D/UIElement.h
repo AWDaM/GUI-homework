@@ -17,14 +17,15 @@ public:
 	void MoveElement(iPoint difference);
 
 	UIElement();
-	UIElement(SDL_Rect & position);
+	UIElement(SDL_Rect & position, bool draggable = false);
 	~UIElement();
 
 public:
 	UIType type = NO_TYPE;
 	SDL_Rect position;
 	bool In_window = false;
-	bool dragable = false;
+	bool draggable = false;
+	bool being_dragged = false;
 	WinElement* winElement = nullptr;
 };
 

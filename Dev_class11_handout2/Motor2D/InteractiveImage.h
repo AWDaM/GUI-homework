@@ -8,7 +8,7 @@ class InteractiveImage : public Interactive, public Image
 {
 public:
 	InteractiveImage(SDL_Rect & pos);
-	InteractiveImage(SDL_Rect & pos, iPoint posOffsetA, iPoint posOffsetB, SDL_Rect image_section, j1Module* callback);
+	InteractiveImage(SDL_Rect & pos, iPoint posOffsetA, iPoint posOffsetB, SDL_Rect image_section, j1Module* callbackbool, bool draggable = false);
 	~InteractiveImage();
 
 	bool PreUpdate();

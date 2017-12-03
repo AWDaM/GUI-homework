@@ -2,10 +2,12 @@
 
 
 
-InteractiveLabel::InteractiveLabel(SDL_Rect& pos) : Interactive(pos)
+
+
+
+InteractiveLabel::InteractiveLabel(SDL_Rect & pos, bool draggable) : Interactive(pos), Label()
 {
 }
-
 
 InteractiveLabel::~InteractiveLabel()
 {

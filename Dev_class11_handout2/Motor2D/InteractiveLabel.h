@@ -7,7 +7,7 @@
 class InteractiveLabel : public Interactive, public Label
 {
 public:
-	InteractiveLabel(SDL_Rect& pos);
+	InteractiveLabel(SDL_Rect& pos, bool draggable = false);
 	~InteractiveLabel();
 };
 
