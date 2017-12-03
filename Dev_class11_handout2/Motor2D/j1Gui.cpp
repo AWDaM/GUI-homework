@@ -43,6 +43,7 @@ bool j1Gui::Start()
 {
 	
 	atlas = App->tex->Load(atlas_file_name.GetString());
+	App->input->GetMousePosition(mouseLastFrame.x, mouseLastFrame.y);
 	CreateSceneIntroGUI();
 
 	return true;
@@ -79,6 +80,19 @@ bool j1Gui::PostUpdate()
 		if (!ret)
 			break;
 	}
+
+	if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_REPEAT)
+	{
+		SDL_Point currentMousepos;
+		App->input->GetMousePosition(currentMousepos.x, currentMousepos.y);
+		for (p2List_item<UIElement*>* item = elements.start; item; item = item->next)
+		{
+		if(SDL_PointInRect(&currentMousepos, &item->data->position))
+
+			if (!ret)
+				break;
+		}
+	}
 	return ret;
 }
 
@@ -107,7 +121,7 @@ bool j1Gui::CleanUp()
 	return true;
 }
 
-UIElement * j1Gui::AddElement(UIType type, iPoint position, iPoint positionOffset)
+UIElement * j1Gui::AddElement(UIType type, SDL_Rect& position, iPoint positionOffset)
 {
 	UIElement* ret = nullptr;
 	switch (type)
@@ -142,14 +156,14 @@ UIElement * j1Gui::AddElement(UIType type, iPoint position, iPoint positionOffse
 	return ret;
 }
 
-UIElement * j1Gui::AddImage(iPoint position, iPoint positionOffset, SDL_Rect * section)
+UIElement * j1Gui::AddImage(SDL_Rect& position, iPoint positionOffset, SDL_Rect * section)
 {
 	UIElement* ret = new Image(position, positionOffset, *section);
 	elements.add(ret);
 	return ret;
 }
 
-InheritedInteractive* j1Gui::AddInteractive(iPoint position, iPoint positionOffset, SDL_Rect & size, j1Module * callback)
+InheritedInteractive* j1Gui::AddInteractive(SDL_Rect& position, iPoint positionOffset, SDL_Rect & size, j1Module * callback)
 {
 	InheritedInteractive* ret = new InheritedInteractive(position, positionOffset, size, callback);
 	elements.add(ret);
@@ -159,9 +173,9 @@ InheritedInteractive* j1Gui::AddInteractive(iPoint position, iPoint positionOffs
 
 
 
-InteractiveImage * j1Gui::AddInteractiveImage(iPoint position, iPoint Interactiverelativepos, iPoint Imagerelativepos, SDL_Rect interactiveSize, SDL_Rect image_section, j1Module * callback)
+InteractiveImage * j1Gui::AddInteractiveImage(SDL_Rect& position, iPoint Interactiverelativepos, iPoint Imagerelativepos, SDL_Rect interactiveSize, SDL_Rect image_section, j1Module * callback)
 {
-	InteractiveImage* ret = new InteractiveImage(position, Interactiverelativepos, Imagerelativepos, interactiveSize, image_section, callback);
+	InteractiveImage* ret = new InteractiveImage(position, Interactiverelativepos, Imagerelativepos, image_section, callback);
 	elements.add(ret);
 	return ret;
 }
@@ -186,7 +200,7 @@ UIElement * j1Gui::DeleteElement(UIElement * element)
 	return item->data;
 }
 
-UIElement* j1Gui::AddImage_From_otherFile(iPoint position, iPoint positionOffset, p2SString &path)
+UIElement* j1Gui::AddImage_From_otherFile(SDL_Rect& position, iPoint positionOffset, p2SString &path)
 {
 	UIElement* element = new InheritedImage(position, positionOffset, path);
 
@@ -206,12 +220,16 @@ Window * j1Gui::AddWindow(SDL_Rect &windowrect)
 
 bool j1Gui::CreateSceneIntroGUI()
 {
-	AddImage_From_otherFile({ 0,0 }, { 0,0 }, background);
+	SDL_Rect backgroundrect = { 0,0,0,0 };
+	AddImage_From_otherFile(backgroundrect, { 0,0 }, background);
 	//{0, 0, 122, 74};
 	//{132, 19, 311, 131};
-	AddInteractiveImage({ 960-61,800 }, { 0,0 }, { 0,0 }, { 960 - 61,800, 122, 74 }, { 0, 0, 122, 74 }, this);
-	AddInteractiveImage({ 0,0 }, { 0,0 }, { 0,0 }, { 0, 0, 311, 131 }, { 132, 19, 311, 131 }, this);
-	InteractiveImage* tmp = AddInteractiveImage({ 0,0 }, { 0,0 }, { 0,0 }, { 0, 0, 130, 32 }, { 0, 74, 130, 32 }, (j1Module*)App->scene);
+	SDL_Rect rect1 = { 960 - 61,800,122,74 };
+	SDL_Rect rect2 = { 0,0,311,131 };
+	SDL_Rect rect3 = { 0,0,130,32 };
+	AddInteractiveImage(rect1, { 0,0 }, { 0,0 }, { 960 - 61,800, 122, 74 }, { 0, 0, 122, 74 }, this);
+	AddInteractiveImage(rect2, { 0,0 }, { 0,0 }, { 0, 0, 311, 131 }, { 132, 19, 311, 131 }, this);
+	InteractiveImage* tmp = AddInteractiveImage(rect3, { 0,0 }, { 0,0 }, { 0, 0, 130, 32 }, { 0, 74, 130, 32 }, (j1Module*)App->scene);
 	tmp->click = { 0,105,130,32 };
 	tmp->hover = { 0,150,145,43 };
 

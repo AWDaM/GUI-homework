@@ -2,11 +2,13 @@
 #include "j1Render.h"
 
 
-InteractiveImage::InteractiveImage(iPoint pos) : Interactive(pos)
+
+
+InteractiveImage::InteractiveImage(SDL_Rect & pos) : Interactive(pos)
 {
 }
 
-InteractiveImage::InteractiveImage(iPoint pos, iPoint Interactiverelativepos, iPoint Imagerelativepos, SDL_Rect interactiveSize, SDL_Rect image_section, j1Module* callback) : Interactive(pos,Interactiverelativepos,interactiveSize,callback), Image(pos,Imagerelativepos,image_section) , UIElement(pos)
+InteractiveImage::InteractiveImage(SDL_Rect & pos, iPoint Interactiverelativepos, iPoint Imagerelativepos, SDL_Rect image_section, j1Module* callback) : Interactive(pos,Interactiverelativepos,callback), Image(pos,Imagerelativepos,image_section) , UIElement(pos)
 {
 	type = INTERACTIVE_IMAGE;
 	current = &this->image_section;

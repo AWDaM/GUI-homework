@@ -14,15 +14,17 @@ public:
 	virtual bool Draw() { return true; }
 	virtual bool HandleAnimation(int eventType) { return true; }
 
+	void MoveElement(iPoint difference);
 
 	UIElement();
-	UIElement(iPoint position);
+	UIElement(SDL_Rect & position);
 	~UIElement();
 
 public:
 	UIType type = NO_TYPE;
-	iPoint position;
+	SDL_Rect position;
 	bool In_window = false;
+	bool dragable = false;
 	WinElement* winElement = nullptr;
 };
 

@@ -6,15 +6,15 @@ InheritedImage::InheritedImage()
 {
 }
 
-InheritedImage::InheritedImage(iPoint position, iPoint positionOffset) : Image(position, positionOffset)
+InheritedImage::InheritedImage(SDL_Rect& position, iPoint positionOffset) : Image(position, positionOffset), UIElement(position)
 {
 }
 
-InheritedImage::InheritedImage(iPoint position, iPoint positionOffset, SDL_Rect & image_section) : Image(position, positionOffset, image_section), UIElement(position)
+InheritedImage::InheritedImage(SDL_Rect& position, iPoint positionOffset, SDL_Rect & image_section) : Image(position, positionOffset, image_section), UIElement(position)
 {
 }
 
-InheritedImage::InheritedImage(iPoint position, iPoint positionOffset, p2SString & path) : Image(path, position, positionOffset)
+InheritedImage::InheritedImage(SDL_Rect& position, iPoint positionOffset, p2SString & path) : Image(path, position, positionOffset), UIElement(position)
 {
 }
 

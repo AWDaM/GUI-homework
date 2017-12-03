@@ -40,11 +40,6 @@ bool j1Scene::Start()
 	temp.w = 1000;
 	temp.h = 1000;
 
-
-
-	App->gui->AddInteractive({ -64,-64 }, { 0,0 }, temp , this);
-
-
 	if(App->map->Load("iso_walk.tmx") == true)
 	{
 		int w, h;

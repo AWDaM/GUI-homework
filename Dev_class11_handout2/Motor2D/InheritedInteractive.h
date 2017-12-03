@@ -6,8 +6,8 @@ class InheritedInteractive :
 {
 public:
 	InheritedInteractive();
-	InheritedInteractive(iPoint pos);
-	InheritedInteractive(iPoint pos, iPoint posOffset, SDL_Rect &size, j1Module* callback);
+	InheritedInteractive(SDL_Rect& pos);
+	InheritedInteractive(SDL_Rect& pos, iPoint posOffset, SDL_Rect &size, j1Module* callback);
 	~InheritedInteractive();
 
 	bool PreUpdate();

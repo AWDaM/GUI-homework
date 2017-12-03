@@ -2,7 +2,7 @@
 
 
 
-InteractiveLabelledImage::InteractiveLabelledImage(iPoint pos) : Interactive(pos)
+InteractiveLabelledImage::InteractiveLabelledImage(SDL_Rect& pos) : Interactive(pos)
 {
 }
 

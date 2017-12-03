@@ -19,7 +19,7 @@ Label::Label()
 {
 }
 
-Label::Label(iPoint position, iPoint Labelrelativepos, p2SString label) : Labelrelativepos(Labelrelativepos)
+Label::Label(SDL_Rect& position, iPoint Labelrelativepos, p2SString label) : Labelrelativepos(Labelrelativepos)
 {
 	this->label = label;
 }

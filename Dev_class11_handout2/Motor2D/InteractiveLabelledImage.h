@@ -8,7 +8,7 @@
 class InteractiveLabelledImage : public Interactive, public Label, public Image
 {
 public:
-	InteractiveLabelledImage(iPoint pos);
+	InteractiveLabelledImage(SDL_Rect& pos);
 	~InteractiveLabelledImage();
 
 };

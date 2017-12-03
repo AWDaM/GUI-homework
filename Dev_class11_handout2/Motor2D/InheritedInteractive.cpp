@@ -6,11 +6,11 @@ InheritedInteractive::InheritedInteractive()
 {
 }
 
-InheritedInteractive::InheritedInteractive(iPoint pos) : Interactive(pos)
+InheritedInteractive::InheritedInteractive(SDL_Rect& pos) : Interactive(pos)
 {
 }
 
-InheritedInteractive::InheritedInteractive(iPoint pos, iPoint posOffset, SDL_Rect & size, j1Module * callback) : Interactive(pos, posOffset, size, callback), UIElement(pos)
+InheritedInteractive::InheritedInteractive(SDL_Rect& pos, iPoint posOffset, SDL_Rect & size, j1Module * callback) : Interactive(pos, posOffset, callback), UIElement(pos)
 {
 }
 

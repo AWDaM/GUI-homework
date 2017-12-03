@@ -11,18 +11,17 @@ Interactive::Interactive()
 {
 }
 
-Interactive::Interactive(iPoint pos)
+Interactive::Interactive(SDL_Rect& pos)
 {
-	collider.x = pos.x;
-	collider.y = pos.y;
+	collider = pos;
 }
 
-Interactive::Interactive(iPoint pos, iPoint Interactiverelativepos, SDL_Rect size, j1Module* callback) :  callback(callback)
+Interactive::Interactive(SDL_Rect& pos, iPoint Interactiverelativepos, j1Module* callback) :  callback(callback)
 {
 	collider.x = pos.x + Interactiverelativepos.x;
 	collider.y = pos.y + Interactiverelativepos.y;
-	collider.w = size.w;
-	collider.h = size.h;
+	collider.w = pos.w;
+	collider.h = pos.h;
 }
 
 
