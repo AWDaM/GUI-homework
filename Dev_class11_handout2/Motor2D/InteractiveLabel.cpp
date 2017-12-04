@@ -1,8 +1,8 @@
 #include "InteractiveLabel.h"
 
 
-InteractiveLabel::InteractiveLabel(SDL_Rect & pos, iPoint posOffsetA, iPoint posOffsetB, p2SString fontPath, SDL_Color textColor, p2SString label, int size, j1Module * callback) :
-	Interactive(pos, posOffsetA, callback), Label(pos, posOffsetB, fontPath, textColor, label, size), UIElement(pos)
+InteractiveLabel::InteractiveLabel(SDL_Rect & pos, iPoint posOffsetA, iPoint posOffsetB, p2SString fontPath, SDL_Color textColor, p2SString label, int size, j1Module * callback, bool draggable) :
+	Interactive(pos, posOffsetA, callback), Label(pos, posOffsetB, fontPath, textColor, label, size), UIElement(pos, draggable)
 {
 	type = UIType::INTERACTIVE_LABEL;
 }

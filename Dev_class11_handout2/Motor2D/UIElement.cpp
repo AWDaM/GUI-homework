@@ -3,15 +3,15 @@
 
 void UIElement::MoveElement(iPoint difference)
 {
-	position.x -= difference.x;
-	position.y -= difference.y;
+	position.x += difference.x;
+	position.y += difference.y;
 }
 
 UIElement::UIElement()
 {
 }
 
-UIElement::UIElement(SDL_Rect & position) : position(position)
+UIElement::UIElement(SDL_Rect & position, bool draggable) : position(position), draggable(draggable)
 {
 	LOG("%i, %i", this->position.x, this->position.y);
 }
