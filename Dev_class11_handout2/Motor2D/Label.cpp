@@ -3,9 +3,21 @@
 #include "j1Render.h"
 
 
+bool Label::LabelPreUpdate()
+{
+
+	return true;
+}
 
 bool Label::LabelUpdate(float dt)
 {
+
+	return true;
+}
+
+bool Label::LabelPostUpdate()
+{
+
 	return true;
 }
 

@@ -8,9 +8,13 @@
 class InteractiveLabelledImage : public Interactive, public Label, public Image
 {
 public:
-	InteractiveLabelledImage(SDL_Rect& pos);
+	InteractiveLabelledImage(SDL_Rect & pos, iPoint posOffsetA, iPoint posOffsetB, iPoint posOffsetC, p2SString fontPath, SDL_Color textColor, p2SString label, int size, SDL_Rect image_section, j1Module* callback);
+
 	~InteractiveLabelledImage();
 
+	bool PreUpdate();
+	bool PostUpdate();
+	bool Draw();
 };
 
 #endif

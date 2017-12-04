@@ -65,6 +65,11 @@ bool Interactive::InteractivePreUpdate()
 	return ret;
 }
 
+bool Interactive::InteractivePostUpdate()
+{
+
+	return true;
+}
 
 bool Interactive::InteractiveDraw()
 {

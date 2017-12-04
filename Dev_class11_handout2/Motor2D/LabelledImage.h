@@ -7,8 +7,13 @@
 class LabelledImage : public Label, public Image
 {
 public:
-	LabelledImage();
+	LabelledImage(SDL_Rect & pos, iPoint posOffsetA, iPoint posOffsetB, p2SString fontPath, SDL_Color textColor, p2SString label, int size, SDL_Rect image_section);
+
 	~LabelledImage();
+
+	bool PreUpdate();
+	bool PostUpdate();
+	bool Draw();
 };
 
 #endif

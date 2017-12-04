@@ -8,7 +8,8 @@ InteractiveImage::InteractiveImage(SDL_Rect & pos) : Interactive(pos)
 {
 }
 
-InteractiveImage::InteractiveImage(SDL_Rect & pos, iPoint Interactiverelativepos, iPoint Imagerelativepos, SDL_Rect image_section, j1Module* callback) : Interactive(pos,Interactiverelativepos,callback), Image(pos,Imagerelativepos,image_section) , UIElement(pos)
+InteractiveImage::InteractiveImage(SDL_Rect & pos, iPoint Interactiverelativepos, iPoint Imagerelativepos, SDL_Rect image_section, j1Module* callback) : 
+	Interactive(pos,Interactiverelativepos,callback), Image(pos,Imagerelativepos,image_section) , UIElement(pos)
 {
 	type = INTERACTIVE_IMAGE;
 	current = &this->image_section;
@@ -22,6 +23,7 @@ InteractiveImage::~InteractiveImage()
 bool InteractiveImage::PreUpdate()
 {
 	InteractivePreUpdate();
+	ImagePreUpdate();
 	return true;
 }
 
@@ -32,6 +34,8 @@ bool InteractiveImage::Update(float dt)
 
 bool InteractiveImage::PostUpdate()
 {
+	InteractivePostUpdate();
+	ImagePostUpdate();
 	return true;
 }
 

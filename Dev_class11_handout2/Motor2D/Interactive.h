@@ -14,6 +14,7 @@ public:
 
 public:
 	 bool InteractivePreUpdate();
+	 bool InteractivePostUpdate();
 
 	 bool InteractiveDraw();
 

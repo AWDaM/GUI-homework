@@ -7,7 +7,9 @@
 class Label : virtual public UIElement
 {
 public:
+	bool LabelPreUpdate();
 	bool LabelUpdate(float dt);
+	bool LabelPostUpdate();
 	bool LabelDraw();
 
 	Label();
