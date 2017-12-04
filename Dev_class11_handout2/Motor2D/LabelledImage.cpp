@@ -16,21 +16,21 @@ LabelledImage::~LabelledImage()
 
 bool LabelledImage::PreUpdate()
 {
-	LabelPreUpdate();
 	ImagePreUpdate();
+	LabelPreUpdate();
 	return true;
 }
 
 bool LabelledImage::PostUpdate()
 {
-	LabelPostUpdate();
 	ImagePostUpdate();
+	LabelPostUpdate();
 	return true;
 }
 
 bool LabelledImage::Draw()
 {
-	LabelDraw();
 	ImageDraw(image_section);
+	LabelDraw();
 	return true;
 }

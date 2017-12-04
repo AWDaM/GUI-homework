@@ -16,24 +16,24 @@ InteractiveLabelledImage::~InteractiveLabelledImage()
 
 bool InteractiveLabelledImage::PreUpdate()
 {
+	ImagePreUpdate();
 	InteractivePreUpdate();
 	LabelPreUpdate();
-	ImagePreUpdate();
 	return true;
 }
 
 bool InteractiveLabelledImage::PostUpdate()
 {
+	ImagePostUpdate();
 	InteractivePostUpdate();
 	LabelPostUpdate();
-	ImagePostUpdate();
 	return true;
 }
 
 bool InteractiveLabelledImage::Draw()
 {
+	ImageDraw(image_section);
 	InteractiveDraw();
 	LabelDraw();
-	ImageDraw(image_section);
 	return true;
 }

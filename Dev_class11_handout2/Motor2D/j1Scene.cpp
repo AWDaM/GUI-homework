@@ -35,12 +35,18 @@ bool j1Scene::Start()
 {
 	SDL_Rect temp;
 
-	temp.x = -64;
-	temp.y = -64;
-	temp.w = 1000;
-	temp.h = 1000;
+	temp.x = 0;
+	temp.y = 0;
+	temp.w = 124;
+	temp.h = 73;
 
-	//App->gui->AddLabel({ 300, 300 }, { 0,0 }, "fonts/open_sans/OpenSans-Regular.ttf", { 255,0,0,0 }, "Default Text", 24);
+
+	App->gui->AddImage({ 200, 0, 200, 100 }, { 0,0 }, &temp, true);
+	App->gui->AddInteractive({ 200, 100, 123, 70 }, { 0,0 }, this, false);
+	App->gui->AddLabel({ 200, 200 }, { 0,0 }, "fonts/open_sans/OpenSans-Regular.ttf", { 255,0,0,0 }, "Default Text", 24, true);
+	App->gui->AddInteractiveLabel({ 100, 150 }, { 0,0 }, { 0,0 }, "fonts/open_sans/OpenSans-Regular.ttf", { 255,0,0,0 }, "Default Text", 24, this, true);
+	App->gui->AddInteractiveLabelledImage({ 000, 150, 200, 200 }, { 0,0 }, { 0,0 }, { 0,0 }, temp, "fonts/open_sans/OpenSans-Regular.ttf", { 255,0,0,0 }, "Default Text", 24, this, true);
+	App->gui->AddLabelledImage({ 200, 250 }, { 0,0 }, { 0,0 }, "fonts/open_sans/OpenSans-Regular.ttf", { 255,0,0,0 }, "Default Text", 24, { 0,0,50,50 }, true);
 
 	if(App->map->Load("iso_walk.tmx") == true)
 	{
@@ -168,10 +174,18 @@ bool j1Scene::CleanUp()
 
 bool j1Scene::OnEvent(UIElement* element, int eventType)
 {
-	LOG("%i", element->type);
+
 	if (element->type == INTERACTIVE_IMAGE)
 	{
 		element->HandleAnimation(eventType);
+	}
+	else if (element->type == INTERACTIVE)
+	{
+		LOG("AAAAAAAAAAAAAA LOL");
+	}
+	else if (element->type == INTERACTIVE_LABELLED_IMAGE)
+	{
+		LOG("LOL");
 	}
 	return true;
 }

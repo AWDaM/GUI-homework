@@ -22,6 +22,8 @@ Image::Image(SDL_Rect& position, iPoint positionOffset, SDL_Rect&  image_section
 {
 	this->image = App->gui->GetAtlas();
 	this->image_section = image_section;
+	if (type == NULL)
+		type = UIType::IMAGE;
 }
 
 Image::Image(p2SString& path, SDL_Rect& position, iPoint positionOffset)

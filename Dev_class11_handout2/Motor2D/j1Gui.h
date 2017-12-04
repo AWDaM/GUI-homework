@@ -74,15 +74,15 @@ public:
 
 	// TODO 2: Create the factory methods
 
-	UIElement* AddElement(UIType type, SDL_Rect& position, iPoint positionOffset, bool draggable = false);
-	InheritedInteractive* AddInteractive(SDL_Rect& position, iPoint positionOffset, SDL_Rect& size, j1Module* callback, bool draggable = false);
-	InheritedLabel* AddLabel(SDL_Rect& position, iPoint positionOffset, p2SString fontPath, SDL_Color textColor, p2SString label, int size = 12, bool draggable = false);
-	InheritedImage* AddImage(SDL_Rect& position, iPoint positionOffset, SDL_Rect* section, bool draggable = false);
+	UIElement* AddElement(UIType type, SDL_Rect position, iPoint positionOffset, bool draggable = false);
+	InheritedInteractive* AddInteractive(SDL_Rect position, iPoint positionOffset, j1Module* callback, bool draggable = false);
+	InheritedLabel* AddLabel(SDL_Rect position, iPoint positionOffset, p2SString fontPath, SDL_Color textColor, p2SString label, int size = 12, bool draggable = false);
+	InheritedImage* AddImage(SDL_Rect position, iPoint positionOffset, SDL_Rect* section, bool draggable = false);
 
-	InteractiveImage* AddInteractiveImage(SDL_Rect& position, iPoint positionOffsetA, iPoint positionOffsetB, SDL_Rect image_section, j1Module* callback, bool draggable = false);
-	InteractiveLabel* AddInteractiveLabel(SDL_Rect& position, iPoint positionOffsetA, iPoint positionOffsetB, p2SString fontPath, SDL_Color textColor, p2SString label, int size, j1Module* callback, bool draggable = false);
-	InteractiveLabelledImage* AddInteractiveLabelledImage(SDL_Rect& position, iPoint positionOffsetA, iPoint positionOffsetB, iPoint positionOffsetC, SDL_Rect image_section, p2SString fontPath, SDL_Color textColor, p2SString label, int size, j1Module* callback, bool draggable = false);
-	LabelledImage* AddLabelledImage(SDL_Rect& position, iPoint positionOffsetA, iPoint positionOffsetB, p2SString fontPath, SDL_Color textColor, p2SString label, int size, SDL_Rect image_section, bool draggable = false);
+	InteractiveImage* AddInteractiveImage(SDL_Rect position, iPoint positionOffsetA, iPoint positionOffsetB, SDL_Rect image_section, j1Module* callback, bool draggable = false);
+	InteractiveLabel* AddInteractiveLabel(SDL_Rect position, iPoint positionOffsetA, iPoint positionOffsetB, p2SString fontPath, SDL_Color textColor, p2SString label, int size, j1Module* callback, bool draggable = false);
+	InteractiveLabelledImage* AddInteractiveLabelledImage(SDL_Rect position, iPoint positionOffsetA, iPoint positionOffsetB, iPoint positionOffsetC, SDL_Rect image_section, p2SString fontPath, SDL_Color textColor, p2SString label, int size, j1Module* callback, bool draggable = false);
+	LabelledImage* AddLabelledImage(SDL_Rect position, iPoint positionOffsetA, iPoint positionOffsetB, p2SString fontPath, SDL_Color textColor, p2SString label, int size, SDL_Rect image_section, bool draggable = false);
 
 
 	UIElement* DeleteElement(UIElement* element);

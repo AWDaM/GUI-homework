@@ -22,6 +22,8 @@ Interactive::Interactive(SDL_Rect& pos, iPoint Interactiverelativepos, j1Module*
 	collider.y = pos.y + Interactiverelativepos.y;
 	collider.w = pos.w;
 	collider.h = pos.h;
+	if(type == NULL)
+		type = UIType::INTERACTIVE;
 }
 
 

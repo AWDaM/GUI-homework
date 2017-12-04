@@ -7,7 +7,8 @@ Label::Label(SDL_Rect& position, iPoint Labelrelativepos, p2SString fontPath, SD
 {
 	font = App->font->Load(fontPath.GetString(), size);
 	fontTexture = App->font->Print(label.GetString(), textColor, font);
-
+	if (type == NULL)
+		type = UIType::LABEL;
 }
 
 
