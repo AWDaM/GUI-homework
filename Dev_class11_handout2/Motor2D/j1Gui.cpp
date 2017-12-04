@@ -12,6 +12,9 @@
 #include "Image.h"
 #include "Interactive.h"
 #include "InteractiveImage.h"
+#include "InteractiveLabel.h"
+#include "InteractiveLabelledImage.h"
+#include "LabelledImage.h"
 #include "InheritedImage.h"
 #include "InheritedInteractive.h"
 #include "InheritedLabel.h"
@@ -129,7 +132,7 @@ bool j1Gui::CleanUp()
 	return true;
 }
 
-UIElement * j1Gui::AddElement(UIType type, SDL_Rect& position, iPoint positionOffset, bool draggable)
+UIElement* j1Gui::AddElement(UIType type, SDL_Rect& position, iPoint positionOffset, bool draggable)
 {
 	UIElement* ret = nullptr;
 	switch (type)
@@ -164,42 +167,62 @@ UIElement * j1Gui::AddElement(UIType type, SDL_Rect& position, iPoint positionOf
 	return ret;
 }
 
-UIElement * j1Gui::AddImage(SDL_Rect& position, iPoint positionOffset, SDL_Rect * section, bool draggable)
+InheritedImage* j1Gui::AddImage(SDL_Rect& position, iPoint positionOffset, SDL_Rect * section, bool draggable)
 {
-	UIElement* ret = new Image(position, positionOffset, *section);
+	InheritedImage* ret = new InheritedImage(position, positionOffset, *section, draggable);
 	elements.add(ret);
 	return ret;
 }
 
 InheritedInteractive* j1Gui::AddInteractive(SDL_Rect& position, iPoint positionOffset, SDL_Rect & size, j1Module * callback, bool draggable)
 {
-	InheritedInteractive* ret = new InheritedInteractive(position, positionOffset, size, callback);
+	InheritedInteractive* ret = new InheritedInteractive(position, positionOffset, size, callback, draggable);
 	elements.add(ret);
 
 	return ret;
 }
-
 
 InheritedLabel* j1Gui::AddLabel(SDL_Rect& position, iPoint positionOffset, p2SString fontPath, SDL_Color textColor, p2SString label, int size, bool draggable)
 {
-	InheritedLabel* ret = new InheritedLabel(position, positionOffset, fontPath, textColor, label, size);
+	InheritedLabel* ret = new InheritedLabel(position, positionOffset, fontPath, textColor, label, size, draggable);
 	elements.add(ret);
 
 	return ret;
 }
 
-InteractiveImage * j1Gui::AddInteractiveImage(SDL_Rect& position, iPoint Interactiverelativepos, iPoint Imagerelativepos, SDL_Rect interactiveSize, SDL_Rect image_section, j1Module * callback, bool draggable)
+InteractiveImage* j1Gui::AddInteractiveImage(SDL_Rect& position, iPoint Interactiverelativepos, iPoint Imagerelativepos, SDL_Rect image_section, j1Module * callback, bool draggable)
 {
 	InteractiveImage* ret = new InteractiveImage(position, Interactiverelativepos, Imagerelativepos, image_section, callback, draggable);
 	elements.add(ret);
 	return ret;
 }
 
+InteractiveLabel* j1Gui::AddInteractiveLabel(SDL_Rect & position, iPoint Interactiverelativepos, iPoint positionOffsetB, p2SString fontPath, SDL_Color textColor, p2SString label, int size, j1Module * callback, bool draggable)
+{
+	InteractiveLabel* ret = new InteractiveLabel(position, Interactiverelativepos, positionOffsetB, fontPath, textColor, label, size, callback, draggable);
+	elements.add(ret);
+	return ret;
+}
+
+InteractiveLabelledImage* j1Gui::AddInteractiveLabelledImage(SDL_Rect & position, iPoint Interactiverelativepos, iPoint positionOffsetB, iPoint Imagerelativepos, SDL_Rect image_section, p2SString fontPath, SDL_Color textColor, p2SString label, int size, j1Module * callback, bool draggable)
+{
+	InteractiveLabelledImage* ret = new InteractiveLabelledImage(position, Interactiverelativepos, positionOffsetB, Imagerelativepos, image_section, fontPath, textColor, label, size, callback, draggable);
+	elements.add(ret);
+	return ret;
+}
+
+LabelledImage* j1Gui::AddLabelledImage(SDL_Rect & position, iPoint positionOffsetA, iPoint Imagerelativepos, p2SString fontPath, SDL_Color textColor, p2SString label, int size, SDL_Rect image_section, bool draggable)
+{
+	LabelledImage* ret = new LabelledImage(position, positionOffsetA, Imagerelativepos, fontPath, textColor, label, size, image_section, draggable);
+	elements.add(ret);
+	return ret;
+}
 
 
 
 
-UIElement * j1Gui::DeleteElement(UIElement * element)
+
+UIElement* j1Gui::DeleteElement(UIElement* element)
 {
 	int index = elements.find(element);
 	p2List_item<UIElement*>* item = nullptr;
@@ -244,7 +267,7 @@ bool j1Gui::CreateSceneIntroGUI()
 	SDL_Rect rect3 = { 0,0,130,32 };
 	/*AddInteractiveImage(rect1, { 0,0 }, { 0,0 }, { 960 - 61,800, 122, 74 }, { 0, 0, 122, 74 }, this);
 	AddInteractiveImage(rect2, { 0,0 }, { 0,0 }, { 0, 0, 311, 131 }, { 132, 19, 311, 131 }, this);*/
-	InteractiveImage* tmp = AddInteractiveImage(rect3, { 0,0 }, { 0,0 }, { 0, 0, 130, 32 }, { 0, 74, 130, 32 }, (j1Module*)App->scene, true);
+	InteractiveImage* tmp = AddInteractiveImage(rect3, { 0,0 }, { 0,0 },  { 0, 74, 130, 32 }, (j1Module*)App->scene, true);
 	tmp->click = { 0,105,130,32 };
 	tmp->hover = { 0,150,145,43 };
 

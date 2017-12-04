@@ -35,8 +35,7 @@ bool Interactive::InteractivePreUpdate()
 
 	MoveCollider();
 	SDL_Point mousePosition;
-	
-	position;
+
 	App->input->GetMousePosition(mousePosition.x, mousePosition.y);
 
 	if (SDL_PointInRect(&mousePosition, &collider))

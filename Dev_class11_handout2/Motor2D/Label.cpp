@@ -3,6 +3,18 @@
 #include "j1Render.h"
 
 
+Label::Label(SDL_Rect& position, iPoint Labelrelativepos, p2SString fontPath, SDL_Color textColor, p2SString label, int size) : Labelrelativepos(Labelrelativepos)
+{
+	font = App->font->Load(fontPath.GetString(), size);
+	fontTexture = App->font->Print(label.GetString(), textColor, font);
+
+}
+
+
+Label::~Label()
+{
+}
+
 bool Label::LabelPreUpdate()
 {
 
@@ -33,14 +45,3 @@ Label::Label()
 }
 
 
-Label::Label(SDL_Rect& position, iPoint Labelrelativepos, p2SString fontPath, SDL_Color textColor, p2SString label, int size) : Labelrelativepos(Labelrelativepos)
-{
-	font = App->font->Load(fontPath.GetString(), size);
-	fontTexture = App->font->Print(label.GetString(), textColor, font);
-
-}
-
-
-Label::~Label()
-{
-}
